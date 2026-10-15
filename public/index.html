@@ -1,0 +1,751 @@
+<!doctype html>
+<html lang="es-CL">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BríoDesk · Mesa de servicios, activos y proyectos hecha en Chile</title>
+<meta name="description" content="BríoDesk es software chileno para ordenar tickets, activos y proyectos en una sola plataforma. Precios en pesos chilenos y app móvil incluida.">
+<meta name="theme-color" content="#062f3b">
+<link rel="canonical" href="https://briodesk.cl/">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_CL">
+<meta property="og:site_name" content="BríoDesk">
+<meta property="og:url" content="https://briodesk.cl/">
+<meta property="og:title" content="BríoDesk · Pon en orden tus tickets, activos y proyectos">
+<meta property="og:description" content="Software chileno de mesa de servicios, inventario de activos y proyectos. Precios en pesos chilenos y app móvil incluida.">
+<meta property="og:image" content="https://briodesk.cl/assets/img/og-briodesk.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="BríoDesk: una plataforma para tickets, activos y proyectos, hecha en Chile.">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&amp;family=Figtree:wght@400;500;600;700&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&amp;family=Figtree:wght@400;500;600;700&amp;display=swap">
+<link rel="stylesheet" href="/assets/css/sitio.css">
+<script src="/assets/js/sitio.js" defer></script>
+</head>
+<body>
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+
+<!-- ============ HERO ============ -->
+<header class="hero oscuro">
+  <div class="wrap">
+    <nav class="nav" aria-label="Principal">
+      <a class="nav-logo" href="/" aria-label="BríoDesk, inicio"><img src="/assets/img/briodesk-logo-claro.png" alt="BríoDesk" width="192" height="40"></a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu">
+        <span class="solo-lector">Menú</span>
+        <svg class="abrir" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <svg class="cerrar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+      <div class="nav-menu" id="nav-menu">
+        <a href="#suite">Productos</a>
+        <a href="#areas">Para toda la empresa</a>
+        <a href="#recorrido">Cómo funciona</a>
+        <a href="#plataforma">Plataforma</a>
+        <a href="#app">App móvil</a>
+        <a href="#planes">Planes</a>
+        <a href="/ingresar">Ingresar</a>
+        <a class="btn btn--acento" href="#demo">Solicitar demo</a>
+      </div>
+    </nav>
+
+    <div class="hero-grid" id="inicio" data-rotador data-intervalo="7000" data-observa>
+      <div class="hero-copy">
+        <ul class="sellos-hero in" aria-label="Destacados">
+          <li>Software chileno</li>
+          <li>Precios en pesos</li>
+          <li>App móvil incluida</li>
+        </ul>
+        <h1 class="in2">Pon en orden<br>tus <span class="palabra" data-por-indice><span>tickets.</span><span hidden>activos.</span><span hidden>proyectos.</span></span><span class="h1-sub">Una plataforma, hecha en Chile.</span></h1>
+        <p class="in3">BríoDesk reúne tu mesa de servicios, el inventario de activos y los proyectos del área en un solo lugar. Lo pagas en pesos chilenos y lo usas también desde el teléfono.</p>
+        <div class="acciones in3">
+          <a class="btn btn--acento" href="#demo">Agenda una demostración</a>
+          <a class="btn btn--fantasma" href="#recorrido">Ver cómo funciona</a>
+        </div>
+      </div>
+
+      <div class="hero-demo">
+        <div class="selector selector--oscuro selector--doble" role="tablist" aria-label="Productos de la suite">
+          <button role="tab" id="t-desk" aria-selected="true" aria-controls="p-desk" data-titulo="Centro de operaciones"><span>Brío Desk</span><small>Tickets y SLA</small></button>
+          <button role="tab" id="t-assets" aria-selected="false" aria-controls="p-assets" data-titulo="Inventario de activos" tabindex="-1"><span>Brío Assets</span><small>Activos</small></button>
+          <button role="tab" id="t-projects" aria-selected="false" aria-controls="p-projects" data-titulo="Proyectos del área" tabindex="-1"><span>Brío Projects</span><small>Proyectos y tareas</small></button>
+        </div>
+        <div class="progreso" data-progreso aria-hidden="true"><span></span></div>
+        <div class="mock">
+          <div class="mock-cabeza">
+            <span class="mock-titulo" data-texto-tab="titulo">Centro de operaciones</span>
+            <span class="en-vivo"><i class="pulso"></i>En vivo · ejemplo</span>
+          </div>
+
+          <div class="pila" role="tabpanel" id="p-desk" aria-labelledby="t-desk">
+            <div class="kpis in">
+              <div class="kpi"><small>Abiertos</small><strong data-vivo="abiertos">42</strong></div>
+              <div class="kpi"><small>SLA cumplido</small><strong>94,8%</strong></div>
+              <div class="kpi"><small>Sin asignar</small><strong data-vivo="sin-asignar">6</strong></div>
+            </div>
+            <div class="fila fila--nueva in" data-vivo="nuevo">
+              <div><em>NUEVO</em><b data-campo="titulo">Cambio de clave de correo</b><small data-campo="mesa">Portal · Mesa Accesos</small></div>
+              <span class="estado estado--info">Asignando…</span>
+            </div>
+            <div class="fila in2">
+              <div><b>No funciona impresora sucursal Centro</b><small>Mesa Soporte · Nivel 1</small></div>
+              <span class="estado estado--alerta">Vence <span data-vivo="sla">en 00:59:00</span></span>
+            </div>
+            <div class="fila in3">
+              <div><b>Alta de usuario nuevo ingreso</b><small>Mesa Accesos</small></div>
+              <span class="estado estado--ok">En plazo</span>
+            </div>
+          </div>
+
+          <div class="pila" role="tabpanel" id="p-assets" aria-labelledby="t-assets" hidden>
+            <div class="kpis in">
+              <div class="kpi"><small>Activos</small><strong>318</strong></div>
+              <div class="kpi"><small>En uso</small><strong>291</strong></div>
+              <div class="kpi"><small>Por revisar</small><strong>9</strong></div>
+            </div>
+            <div class="fila in">
+              <div><b>Notebook · NB-0142</b><small>Asignado · Área Finanzas</small></div>
+              <span class="estado estado--ok">Operativo</span>
+            </div>
+            <div class="fila in2">
+              <div><b>Impresora · IM-0031</b><small>Sucursal Centro · 2 tickets abiertos</small></div>
+              <span class="estado estado--alerta">Con incidencia</span>
+            </div>
+            <div class="fila in3">
+              <div><b>Refrigerador · RF-0012</b><small>Bodega central</small></div>
+              <span class="estado estado--neutro">En stock</span>
+            </div>
+          </div>
+
+          <div class="kanban" role="tabpanel" id="p-projects" aria-labelledby="t-projects" hidden>
+            <div class="in">
+              <h4>Por hacer</h4>
+              <p>Inventario sucursal Norte</p>
+              <p>Cotizar renovación de equipos</p>
+            </div>
+            <div class="in2">
+              <h4>En curso</h4>
+              <p>Migración de correo<span class="barra" aria-hidden="true"><span data-vivo="avance" style="width: 58%"></span></span></p>
+              <p>Apertura tienda Ñuñoa</p>
+            </div>
+            <div class="in3">
+              <h4>Listo</h4>
+              <p class="hecho">Cambio de red oficina</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sellos">
+    <ul class="wrap">
+      <li><span class="check"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#CFF56A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg></span>Hecho y soportado en Chile</li>
+      <li><span class="check"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#CFF56A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg></span>Precios en pesos chilenos</li>
+      <li><span class="check"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#CFF56A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg></span>App móvil con tickets, activos y proyectos</li>
+      <li><span class="check"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#CFF56A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg></span>Se adapta al lenguaje de cada área</li>
+    </ul>
+  </div>
+</header>
+
+<main id="contenido">
+
+<!-- ============ POR QUÉ ============ -->
+<section class="seccion wrap" id="porque" aria-labelledby="porque-titulo">
+  <p class="antetitulo">Por qué BríoDesk</p>
+  <h2 class="titulo-2" id="porque-titulo">Pensado para cómo trabajan las empresas en Chile.</h2>
+  <div class="grilla">
+    <article class="tarjeta eleva">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#062f3b" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 3 2.5 15 0 18M12 3c-2.5 3-2.5 15 0 18"/></svg>
+      <h3>Software chileno</h3>
+      <p>Desarrollado y soportado en Chile. Conversas en tu idioma, en tu horario, con quienes construyen el producto.</p>
+    </article>
+    <article class="tarjeta eleva">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#062f3b" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/><path d="M6 9v.01M18 15v.01"/></svg>
+      <h3>Pagas en pesos chilenos</h3>
+      <p>Sin cobros en dólares ni sorpresas por tipo de cambio. Un costo mensual predecible que tu área de finanzas puede planificar.</p>
+    </article>
+    <article class="tarjeta tarjeta--oscura eleva">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#CFF56A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg>
+      <h3>Todo, también en el teléfono</h3>
+      <p>La app móvil no se queda en crear tickets: registra y monitorea activos y avanza las tareas de tus proyectos desde terreno.</p>
+    </article>
+    <article class="tarjeta eleva">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#062f3b" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h11a3 3 0 0 1 3 3v5a3 3 0 0 1-3 3H9l-5 4z"/><path d="M8 9.5h6M8 12.5h4"/></svg>
+      <h3>Habla el idioma de cada área</h3>
+      <p>No es solo para TI. Personas, mantención o finanzas la usan con sus propios términos: solicitudes, órdenes de trabajo, requerimientos.</p>
+    </article>
+  </div>
+</section>
+
+<!-- ============ ÁREAS ============ -->
+<section class="wrap" id="areas" aria-labelledby="areas-titulo">
+  <div class="caja" data-rotador data-intervalo="6000" data-observa>
+    <div class="cabecera">
+      <div>
+        <p class="antetitulo">Para toda la empresa</p>
+        <h2 class="titulo-2 titulo-2--m" id="areas-titulo">Una mesa que se amolda al lenguaje de quien la usa.</h2>
+        <p class="bajada">Cada mesa se configura con sus propios términos. Así Personas, Mantención o Finanzas trabajan con su lenguaje y nadie siente que está usando una herramienta de TI.</p>
+      </div>
+      <div class="selector" role="tablist" aria-label="Áreas de la empresa">
+        <button role="tab" id="t-ti" aria-selected="true" aria-controls="p-ti">TI</button>
+        <button role="tab" id="t-personas" aria-selected="false" aria-controls="p-personas" tabindex="-1">Personas</button>
+        <button role="tab" id="t-mantencion" aria-selected="false" aria-controls="p-mantencion" tabindex="-1">Mantención</button>
+        <button role="tab" id="t-finanzas" aria-selected="false" aria-controls="p-finanzas" tabindex="-1">Finanzas</button>
+      </div>
+    </div>
+
+    <div class="areas-panel" role="tabpanel" id="p-ti" aria-labelledby="t-ti">
+      <div class="mesa in">
+        <div class="mesa-cabeza"><strong>Mesa de Soporte TI</strong><span>+ Nuevo ticket</span></div>
+        <div class="mesa-item"><div><b>Restablecer contraseña</b><small>Agente: Camila R.</small></div><span class="estado estado--ok">En curso</span></div>
+        <div class="mesa-item"><div><b>Falla de impresora</b><small>Agente: Diego M.</small></div><span class="estado estado--ok">Asignado</span></div>
+        <div class="mesa-item"><div><b>Solicitud de notebook</b><small>Agente: Camila R.</small></div><span class="estado estado--ok">En plazo</span></div>
+      </div>
+      <div class="equivalencias">
+        <h3>Así lo llama TI</h3>
+        <dl>
+          <div><dt>Ticket</dt><dd>Ticket</dd></div>
+          <div><dt>Agente</dt><dd>Agente</dd></div>
+          <div><dt>Mesa</dt><dd>Mesa de Soporte TI</dd></div>
+          <div><dt>Catálogo</dt><dd>Servicios TI</dd></div>
+        </dl>
+      </div>
+    </div>
+
+    <div class="areas-panel" role="tabpanel" id="p-personas" aria-labelledby="t-personas" hidden>
+      <div class="mesa in">
+        <div class="mesa-cabeza"><strong>Mesa de Personas</strong><span>+ Nueva solicitud</span></div>
+        <div class="mesa-item"><div><b>Certificado de antigüedad</b><small>Analista: Fernanda S.</small></div><span class="estado estado--ok">En curso</span></div>
+        <div class="mesa-item"><div><b>Solicitud de vacaciones</b><small>Analista: Tomás V.</small></div><span class="estado estado--ok">Asignada</span></div>
+        <div class="mesa-item"><div><b>Actualizar datos de contacto</b><small>Analista: Fernanda S.</small></div><span class="estado estado--ok">En plazo</span></div>
+      </div>
+      <div class="equivalencias">
+        <h3>Así lo llama Personas</h3>
+        <dl>
+          <div><dt>Ticket</dt><dd>Solicitud</dd></div>
+          <div><dt>Agente</dt><dd>Analista</dd></div>
+          <div><dt>Mesa</dt><dd>Mesa de Personas</dd></div>
+          <div><dt>Catálogo</dt><dd>Trámites</dd></div>
+        </dl>
+      </div>
+    </div>
+
+    <div class="areas-panel" role="tabpanel" id="p-mantencion" aria-labelledby="t-mantencion" hidden>
+      <div class="mesa in">
+        <div class="mesa-cabeza"><strong>Mesa de Mantención</strong><span>+ Nueva orden</span></div>
+        <div class="mesa-item"><div><b>Filtración en baño local 12</b><small>Técnico: Jorge P.</small></div><span class="estado estado--ok">En terreno</span></div>
+        <div class="mesa-item"><div><b>Revisión aire acondicionado</b><small>Técnico: Luis A.</small></div><span class="estado estado--ok">Programada</span></div>
+        <div class="mesa-item"><div><b>Cambio de luminarias</b><small>Técnico: Jorge P.</small></div><span class="estado estado--ok">En plazo</span></div>
+      </div>
+      <div class="equivalencias">
+        <h3>Así lo llama Mantención</h3>
+        <dl>
+          <div><dt>Ticket</dt><dd>Orden de trabajo</dd></div>
+          <div><dt>Agente</dt><dd>Técnico</dd></div>
+          <div><dt>Mesa</dt><dd>Mesa de Mantención</dd></div>
+          <div><dt>Catálogo</dt><dd>Tipos de trabajo</dd></div>
+        </dl>
+      </div>
+    </div>
+
+    <div class="areas-panel" role="tabpanel" id="p-finanzas" aria-labelledby="t-finanzas" hidden>
+      <div class="mesa in">
+        <div class="mesa-cabeza"><strong>Mesa de Finanzas</strong><span>+ Nuevo requerimiento</span></div>
+        <div class="mesa-item"><div><b>Pago a proveedor</b><small>Ejecutivo: Paula C.</small></div><span class="estado estado--ok">En revisión</span></div>
+        <div class="mesa-item"><div><b>Rendición de gastos</b><small>Ejecutivo: Andrés T.</small></div><span class="estado estado--ok">Asignado</span></div>
+        <div class="mesa-item"><div><b>Emisión de nota de crédito</b><small>Ejecutivo: Paula C.</small></div><span class="estado estado--ok">En plazo</span></div>
+      </div>
+      <div class="equivalencias">
+        <h3>Así lo llama Finanzas</h3>
+        <dl>
+          <div><dt>Ticket</dt><dd>Requerimiento</dd></div>
+          <div><dt>Agente</dt><dd>Ejecutivo</dd></div>
+          <div><dt>Mesa</dt><dd>Mesa de Finanzas</dd></div>
+          <div><dt>Catálogo</dt><dd>Requerimientos</dd></div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RECORRIDO ============ -->
+<section class="seccion wrap" id="recorrido" aria-labelledby="recorrido-titulo" data-rotador data-intervalo="6000" data-acumula data-observa>
+  <div class="cabecera">
+    <div>
+      <p class="antetitulo">Sigue un ticket</p>
+      <h2 class="titulo-2" id="recorrido-titulo">De la solicitud al cierre, sin perderle el rastro.</h2>
+    </div>
+    <button class="btn btn--borde play" type="button" data-play aria-pressed="true"><i aria-hidden="true"></i><span>Pausar recorrido</span></button>
+  </div>
+
+  <div class="pista">
+    <div class="pista-base" aria-hidden="true"></div>
+    <div class="pista-avance" data-avance aria-hidden="true"></div>
+    <div role="tablist" aria-label="Etapas del ticket">
+      <button role="tab" id="t-e1" class="hecho" aria-selected="true" aria-controls="p-e1" style="left: 0%" data-quien="Solicitante" data-paso="Paso 1 de 5"><span class="num">1</span><span class="corto">Llega la solicitud</span></button>
+      <button role="tab" id="t-e2" aria-selected="false" aria-controls="p-e2" style="left: 25%" data-quien="Automático" data-paso="Paso 2 de 5" tabindex="-1"><span class="num">2</span><span class="corto">Clasifica y SLA</span></button>
+      <button role="tab" id="t-e3" aria-selected="false" aria-controls="p-e3" style="left: 50%" data-quien="Automático" data-paso="Paso 3 de 5" tabindex="-1"><span class="num">3</span><span class="corto">Mesa correcta</span></button>
+      <button role="tab" id="t-e4" aria-selected="false" aria-controls="p-e4" style="left: 75%" data-quien="Agente" data-paso="Paso 4 de 5" tabindex="-1"><span class="num">4</span><span class="corto">Agente resuelve</span></button>
+      <button role="tab" id="t-e5" aria-selected="false" aria-controls="p-e5" style="left: 100%" data-quien="Coordinador" data-paso="Paso 5 de 5" tabindex="-1"><span class="num">5</span><span class="corto">Coordinador mide</span></button>
+    </div>
+    <div class="ficha-chip" data-chip aria-hidden="true">#4821</div>
+  </div>
+
+  <div class="recorrido-cuerpo">
+    <div class="etapa">
+      <div role="tabpanel" id="p-e1" aria-labelledby="t-e1" class="in">
+        <span class="etiqueta">Portal · App móvil</span>
+        <h3>Llega la solicitud</h3>
+        <p>La persona elige el servicio desde el portal o la app, completa un formulario pensado para ese caso y adjunta lo que haga falta. Sin correos que se pierden.</p>
+      </div>
+      <div role="tabpanel" id="p-e2" aria-labelledby="t-e2" class="in" hidden>
+        <span class="etiqueta">Catálogo · SLA</span>
+        <h3>Se clasifica y corre el SLA</h3>
+        <p>El catálogo define categoría, prioridad y plazo. El reloj respeta horario hábil, días festivos y pausas, así el compromiso es real.</p>
+      </div>
+      <div role="tabpanel" id="p-e3" aria-labelledby="t-e3" class="in" hidden>
+        <span class="etiqueta">Mesas jerárquicas</span>
+        <h3>Llega a la mesa correcta</h3>
+        <p>La asignación automática lo deriva a la mesa o submesa que corresponde, sin que nadie tenga que reenviarlo a mano.</p>
+      </div>
+      <div role="tabpanel" id="p-e4" aria-labelledby="t-e4" class="in" hidden>
+        <span class="etiqueta">Escritorio · App móvil</span>
+        <h3>El agente resuelve, donde esté</h3>
+        <p>Desde el computador o el teléfono: responde, reasigna y cierra. Con Brío Assets, además ve el equipo involucrado y su historial.</p>
+      </div>
+      <div role="tabpanel" id="p-e5" aria-labelledby="t-e5" class="in" hidden>
+        <span class="etiqueta">Reportes · Alertas</span>
+        <h3>El coordinador lo ve todo</h3>
+        <p>Cumplimiento de SLA, carga por mesa y alertas antes de que un plazo se venza. Decisiones con datos, no con intuición.</p>
+      </div>
+
+      <div class="etapa-pie">
+        <div class="etapa-meta"><span data-texto-tab="paso">Paso 1 de 5</span><span data-texto-tab="quien">Solicitante</span></div>
+        <div class="etapa-barra" data-progreso aria-hidden="true"><span></span></div>
+        <div class="etapa-botones">
+          <button class="btn btn--borde btn--chico" type="button" data-anterior>Anterior</button>
+          <button class="btn btn--oscuro btn--chico" type="button" data-siguiente>Siguiente paso</button>
+        </div>
+      </div>
+    </div>
+
+    <aside class="ticket" aria-label="Ficha del ticket de ejemplo">
+      <p class="antetitulo">Ticket #4821</p>
+      <h3>No funciona impresora sucursal Centro</h3>
+      <dl>
+        <div><dt>Estado</dt><dd data-por-indice><span>Nuevo</span><span hidden>Clasificado</span><span hidden>Asignado</span><span hidden>En curso</span><span hidden>Resuelto</span></dd></div>
+        <div><dt>Responsable</dt><dd data-por-indice><span>Sin asignar</span><span hidden>Sin asignar</span><span hidden>Mesa Soporte N1</span><span hidden>Agente en terreno</span><span hidden>Agente en terreno</span></dd></div>
+        <div><dt>SLA</dt><dd data-por-indice><span>—</span><span hidden>4 h hábiles</span><span hidden data-vivo="sla">en 00:59:00</span><span hidden data-vivo="sla">en 00:59:00</span><span hidden>Cumplido</span></dd></div>
+      </dl>
+    </aside>
+  </div>
+</section>
+
+<!-- ============ PLATAFORMA WEB ============ -->
+<section class="seccion wrap" id="plataforma" aria-labelledby="plataforma-titulo" data-rotador data-intervalo="7000" data-observa>
+  <div class="cabecera">
+    <div>
+      <p class="antetitulo">La plataforma web</p>
+      <h2 class="titulo-2" id="plataforma-titulo">Una vista para cada persona del proceso.</h2>
+      <p class="bajada">Recorre las pantallas principales: desde el portal donde se pide ayuda hasta la configuración de cada mesa.</p>
+    </div>
+  </div>
+  <div class="selector selector--doble" role="tablist" aria-label="Pantallas de la plataforma">
+    <button role="tab" id="t-portal" aria-selected="true" aria-controls="p-portal" data-url="tuempresa.briodesk.cl/portal" data-menu="0"><span>Portal</span><small>Solicitante</small></button>
+    <button role="tab" id="t-bandeja" aria-selected="false" aria-controls="p-bandeja" data-url="tuempresa.briodesk.cl/tickets" data-menu="1" tabindex="-1"><span>Bandeja</span><small>Agente</small></button>
+    <button role="tab" id="t-detalle" aria-selected="false" aria-controls="p-detalle" data-url="tuempresa.briodesk.cl/tickets/4821" data-menu="1" tabindex="-1"><span>Detalle del ticket</span><small>Agente</small></button>
+    <button role="tab" id="t-tablero" aria-selected="false" aria-controls="p-tablero" data-url="tuempresa.briodesk.cl/tablero" data-menu="2" tabindex="-1"><span>Tablero</span><small>Coordinador</small></button>
+    <button role="tab" id="t-config" aria-selected="false" aria-controls="p-config" data-url="tuempresa.briodesk.cl/config/mesas/mantencion" data-menu="4" tabindex="-1"><span>Configuración</span><small>Administrador</small></button>
+  </div>
+
+  <div class="navegador">
+    <div class="navegador-barra">
+      <div class="semaforo" aria-hidden="true"><i></i><i></i><i></i></div>
+      <div class="url" data-texto-tab="url">tuempresa.briodesk.cl/portal</div>
+    </div>
+    <div class="app-web">
+      <div class="app-menu" data-menu-lateral aria-hidden="true">
+        <img src="/assets/img/briodesk-logo-claro.png" alt="" width="134" height="28">
+        <span class="activo">Portal</span><span>Tickets</span><span>Tablero</span><span>Activos</span><span>Configuración</span>
+      </div>
+      <div class="app-contenido">
+
+        <div role="tabpanel" id="p-portal" aria-labelledby="t-portal">
+          <div class="pantalla-titulo in">Hola, Daniela. ¿En qué te ayudamos?</div>
+          <div class="buscador in"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#45606A" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>Busca un servicio: contraseña, vacaciones, notebook…</div>
+          <div class="mini-grilla in2">
+            <div class="mini"><b>Soporte TI</b><small>12 servicios</small></div>
+            <div class="mini"><b>Accesos</b><small>6 servicios</small></div>
+            <div class="mini"><b>Personas</b><small>9 trámites</small></div>
+            <div class="mini"><b>Mantención</b><small>7 tipos de trabajo</small></div>
+            <div class="mini"><b>Finanzas</b><small>5 requerimientos</small></div>
+          </div>
+          <div class="lista in3">
+            <div class="lista-titulo">Mis solicitudes</div>
+            <div><span>Solicitud de vacaciones</span><span class="estado estado--ok">Aprobada</span></div>
+            <div><span>Falla de impresora</span><span class="estado estado--neutro">En curso</span></div>
+          </div>
+        </div>
+
+        <div role="tabpanel" id="p-bandeja" aria-labelledby="t-bandeja" hidden>
+          <div class="entre in">
+            <span class="pantalla-titulo">Bandeja de tickets</span>
+            <div class="filtros"><span class="activo">Mis tickets · 8</span><span>Sin asignar · 6</span><span>Por vencer · 3</span></div>
+          </div>
+          <div class="tabla-scroll in2">
+            <table class="tabla">
+              <thead><tr><th scope="col">N°</th><th scope="col">Asunto</th><th scope="col">Mesa</th><th scope="col">Prioridad</th><th scope="col">SLA</th></tr></thead>
+              <tbody>
+                <tr><td>#4821</td><td>No funciona impresora sucursal Centro</td><td>Soporte N1</td><td>Alta</td><td><span class="estado estado--alerta" data-vivo="sla">en 00:59:00</span></td></tr>
+                <tr><td>#4819</td><td>Alta de usuario nuevo ingreso</td><td>Accesos</td><td>Media</td><td><span class="estado estado--ok">En plazo</span></td></tr>
+                <tr><td>#4816</td><td>Sin conexión a internet en bodega</td><td>Redes</td><td>Alta</td><td><span class="estado estado--ok">En plazo</span></td></tr>
+                <tr><td>#4812</td><td>Solicitud de licencia de software</td><td>Licencias</td><td>Baja</td><td><span class="estado estado--ok">En plazo</span></td></tr>
+                <tr><td>#4807</td><td>Pantalla parpadea en caja 3</td><td>Soporte N1</td><td>Media</td><td><span class="estado estado--neutro">En pausa</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div role="tabpanel" id="p-detalle" aria-labelledby="t-detalle" hidden>
+          <div class="detalle">
+            <div class="detalle-hilo in">
+              <div><div class="ruta">#4821 · Soporte TI › Impresoras</div><div class="pantalla-titulo">No funciona impresora sucursal Centro</div></div>
+              <div class="mensaje"><b>Daniela F. <span>· solicitante · 09:12</span></b><p>La impresora de caja no imprime boletas desde esta mañana. Adjunto foto del error.</p></div>
+              <div class="mensaje mensaje--agente"><b>Diego M. <span>· agente · 09:26</span></b><p>Revisé el historial del equipo: tuvo la misma falla hace dos semanas. Voy en camino a la sucursal.</p></div>
+              <div class="mensaje mensaje--vacio">Escribe una respuesta…</div>
+            </div>
+            <div class="lista in2">
+              <div><span class="gris">Estado</span><strong>En curso</strong></div>
+              <div><span class="gris">Prioridad</span><strong>Alta</strong></div>
+              <div><span class="gris">Responsable</span><strong>Diego M.</strong></div>
+              <div><span class="gris">SLA</span><span class="estado estado--alerta" data-vivo="sla">en 00:59:00</span></div>
+              <div><span class="gris">Activo</span><strong>IM-0031</strong></div>
+            </div>
+          </div>
+        </div>
+
+        <div role="tabpanel" id="p-tablero" aria-labelledby="t-tablero" hidden>
+          <div class="pantalla-titulo in">Tablero de coordinación</div>
+          <div class="kpis-4 in">
+            <div class="kpi"><small>Abiertos</small><strong data-vivo="abiertos">42</strong></div>
+            <div class="kpi"><small>SLA cumplido</small><strong>94,8%</strong></div>
+            <div class="kpi"><small>Por vencer</small><strong>3</strong></div>
+            <div class="kpi"><small>Resueltos hoy</small><strong>27</strong></div>
+          </div>
+          <div class="tablero">
+            <div class="grafico in2">
+              <h4>Tickets abiertos por mesa</h4>
+              <div class="barras" role="img" aria-label="Gráfico de ejemplo: Soporte es la mesa con más tickets abiertos, seguida de Mantención, Redes, Accesos y Personas.">
+                <div><i style="height: 140px"></i><small>Soporte</small></div>
+                <div><i style="height: 72px"></i><small>Accesos</small></div>
+                <div><i style="height: 96px"></i><small>Redes</small></div>
+                <div><i style="height: 58px"></i><small>Personas</small></div>
+                <div><i style="height: 110px"></i><small>Mantención</small></div>
+              </div>
+            </div>
+            <div class="lista in3">
+              <div class="lista-titulo">Alertas</div>
+              <div><span class="estado estado--alerta">SLA</span> 3 tickets vencen en menos de 2 h</div>
+              <div><span class="estado estado--neutro">Carga</span> Mesa Soporte sobre su promedio</div>
+              <div><span class="estado estado--neutro">Cola</span> 6 tickets sin asignar</div>
+            </div>
+          </div>
+        </div>
+
+        <div role="tabpanel" id="p-config" aria-labelledby="t-config" hidden>
+          <div class="in"><div class="ruta">Configuración › Mesas</div><div class="pantalla-titulo">Mesa de Mantención</div></div>
+          <div class="config in2">
+            <h4>Lenguaje de la mesa</h4>
+            <div class="campos">
+              <div class="campo-falso">Cómo se llama un ticket<span>Orden de trabajo</span></div>
+              <div class="campo-falso">Quién atiende<span>Técnico</span></div>
+              <div class="campo-falso">Nombre del catálogo<span>Tipos de trabajo</span></div>
+            </div>
+          </div>
+          <div class="config in3">
+            <h4>Horario y SLA</h4>
+            <div class="campos">
+              <div class="campo-falso">Horario de atención<span>Lun a vie · 08:30 a 18:30</span></div>
+              <div class="campo-falso">Plazo por defecto<span>8 h hábiles</span></div>
+            </div>
+            <div class="interruptor"><i aria-hidden="true"></i>Considerar feriados de Chile</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ APP MÓVIL ============ -->
+<section class="seccion oscuro" id="app" aria-labelledby="app-titulo">
+  <div class="wrap" data-rotador data-intervalo="6000" data-observa>
+    <div class="app-copy">
+      <p class="antetitulo">App móvil</p>
+      <h2 class="titulo-2" id="app-titulo">La operación no se queda en el escritorio.</h2>
+      <p class="bajada bajada--g">Técnicos en terreno, coordinadores en reunión, solicitantes en la sucursal: cada uno trabaja desde su teléfono con los módulos que tenga contratados.</p>
+      <div class="selector selector--oscuro" role="tablist" aria-label="Módulos de la app">
+        <button role="tab" id="t-m-tickets" aria-selected="true" aria-controls="p-m-tickets" data-texto="Crea solicitudes, revisa el avance y recibe avisos. Los agentes atienden y cierran desde terreno.">Tickets</button>
+        <button role="tab" id="t-m-activos" aria-selected="false" aria-controls="p-m-activos" data-texto="Registra activos nuevos, revisa su estado y su historial de incidencias sin volver a la oficina." tabindex="-1">Activos</button>
+        <button role="tab" id="t-m-proyectos" aria-selected="false" aria-controls="p-m-proyectos" data-texto="Marca tareas como hechas, ve el avance del proyecto y sabe qué falta, desde donde estés." tabindex="-1">Proyectos</button>
+      </div>
+      <p class="app-texto" data-texto-tab="texto" aria-live="polite">Crea solicitudes, revisa el avance y recibe avisos. Los agentes atienden y cierran desde terreno.</p>
+    </div>
+
+    <div class="telefono-wrap">
+      <div class="telefono flota">
+        <div class="pantalla">
+          <div class="aviso" data-vivo="aviso" aria-hidden="true"><i></i><div><small>BríoDesk · ahora</small><b>Nuevo ticket asignado: caja 3</b></div></div>
+          <div class="pantalla-cabeza"><img src="/assets/img/briodesk-logo.png" alt="BríoDesk" width="115" height="24"><span class="avatar" aria-hidden="true">AG</span></div>
+
+          <div role="tabpanel" id="p-m-tickets" aria-labelledby="t-m-tickets">
+            <h3 class="in">Mis tickets</h3>
+            <div class="movil-item in"><b>Impresora sucursal Centro</b><small class="alerta">SLA vence <span data-vivo="sla">en 00:59:00</span></small></div>
+            <div class="movil-item in2"><b>Sin acceso a carpeta compartida</b><small class="ok">En plazo</small></div>
+            <div class="movil-item in3"><b>Instalar software contable</b><small class="ok">En plazo</small></div>
+            <div class="movil-boton in3">Crear ticket</div>
+          </div>
+
+          <div role="tabpanel" id="p-m-activos" aria-labelledby="t-m-activos" hidden>
+            <h3 class="in">Activos</h3>
+            <div class="movil-boton in">Registrar activo</div>
+            <div class="movil-item in2"><b>Notebook · NB-0142</b><small>Operativo · Finanzas</small></div>
+            <div class="movil-item in2"><b>Impresora · IM-0031</b><small class="alerta">Con incidencia</small></div>
+            <div class="movil-item in3"><b>Televisor · TV-0004</b><small>Operativo · Sala de reuniones</small></div>
+          </div>
+
+          <div role="tabpanel" id="p-m-proyectos" aria-labelledby="t-m-proyectos" hidden>
+            <h3 class="in">Apertura tienda Ñuñoa</h3>
+            <div class="barra barra--g in" aria-hidden="true"><span data-vivo="avance" style="width: 58%"></span></div>
+            <div class="tarea hecha in2"><i aria-hidden="true"></i>Habilitar red</div>
+            <div class="tarea hecha in2"><i aria-hidden="true"></i>Instalar cajas</div>
+            <div class="tarea in3"><i aria-hidden="true"></i>Configurar impresoras</div>
+            <div class="tarea in3"><i aria-hidden="true"></i>Pruebas de apertura</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SUITE ============ -->
+<section class="seccion wrap" id="suite" aria-labelledby="suite-titulo">
+  <p class="antetitulo">La suite Brío</p>
+  <h2 class="titulo-2" id="suite-titulo">Contrata lo que necesitas. Suma el resto cuando crezcas.</h2>
+  <p class="bajada bajada--g">Tres productos que funcionan solos o conectados entre sí.</p>
+  <div class="grilla" style="--min: 300px">
+    <article class="tarjeta tarjeta--producto eleva">
+      <h3>Brío Desk</h3>
+      <p>Mesa de servicios con catálogo, mesas jerárquicas, SLA con horario hábil y festivos, portal de solicitantes y reportes.</p>
+    </article>
+    <article class="tarjeta tarjeta--producto eleva">
+      <h3>Brío Assets</h3>
+      <p>Inventario de todo lo que necesitas controlar: computadores, teléfonos, mobiliario, electrodomésticos. Dónde está, a quién está asignado y en qué estado.</p>
+    </article>
+    <article class="tarjeta tarjeta--producto eleva">
+      <h3>Brío Projects</h3>
+      <p>Proyectos y tareas del área: aperturas, migraciones, renovaciones. Cada tarea con responsable y avance visible.</p>
+    </article>
+  </div>
+</section>
+
+<!-- ============ PLANES ============
+     Precios oficiales en pesos, fijos (no se calculan desde la UF).
+     Se actualizan una vez al año: ver README, sección «Actualizar precios». -->
+<section class="wrap" id="planes" aria-labelledby="planes-titulo" data-planes>
+  <div class="cabecera">
+    <div>
+      <p class="antetitulo">Planes</p>
+      <h2 class="titulo-2" id="planes-titulo">Precios claros, en pesos chilenos.</h2>
+      <p class="bajada">Sin dólares ni tipo de cambio. El precio se mantiene fijo por 12 meses y se reajusta una vez al año según IPC.</p>
+    </div>
+    <div class="periodo" role="tablist" aria-label="Periodo de pago">
+      <button role="tab" id="t-mensual" aria-selected="true" aria-controls="planes-grilla" data-periodo="mensual">Mensual</button>
+      <button role="tab" id="t-anual" aria-selected="false" aria-controls="planes-grilla" data-periodo="anual" tabindex="-1">Anual <em>2 meses gratis</em></button>
+    </div>
+  </div>
+
+  <div class="grilla" id="planes-grilla" style="--min: 300px" aria-live="polite">
+    <article class="plan eleva">
+      <div class="plan-cabeza"><h3>Básico</h3></div>
+      <p class="plan-desc">Para equipos pequeños que quieren ordenar sus solicitudes.</p>
+      <div class="plan-precio">
+        <small>Precio</small>
+        <div class="monto"><span data-mensual="$103.000" data-anual="$1.030.000">$103.000</span><span class="por" data-mensual=" /mes" data-anual=" /año"> /mes</span></div>
+        <div class="uf"><span data-mensual="2,5 UF al mes" data-anual="25 UF al año">2,5 UF al mes</span> · + IVA</div>
+        <div class="nota" data-mensual="" data-anual="Equivale a $85.833 al mes"></div>
+      </div>
+      <ul>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>5 licencias nominales incluidas</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Hasta 8 licencias en total</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Mesas, catálogo y SLA</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Activos básico: hasta 50 activos</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>App móvil incluida</li>
+      </ul>
+      <a class="btn btn--linea" href="#demo" data-interes="Brío Desk">Solicitar demo</a>
+    </article>
+
+    <article class="plan plan--destacado eleva">
+      <div class="plan-cabeza"><h3>Equipo</h3><span class="insignia">Recomendado</span></div>
+      <p class="plan-desc">Para áreas que atienden a toda la empresa y necesitan flexibilidad.</p>
+      <div class="plan-precio">
+        <small>Precio</small>
+        <div class="monto"><span data-mensual="$287.000" data-anual="$2.870.000">$287.000</span><span class="por" data-mensual=" /mes" data-anual=" /año"> /mes</span></div>
+        <div class="uf"><span data-mensual="7 UF al mes" data-anual="70 UF al año">7 UF al mes</span> · + IVA</div>
+        <div class="nota" data-mensual="" data-anual="Equivale a $239.167 al mes"></div>
+      </div>
+      <ul>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>10 licencias nominales incluidas</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>5 licencias concurrentes incluidas</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Mesas, catálogo y SLA</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Activos básico: hasta 50 activos</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>App móvil incluida</li>
+      </ul>
+      <a class="btn btn--acento" href="#demo" data-interes="Brío Desk">Solicitar demo</a>
+    </article>
+
+    <article class="plan eleva">
+      <div class="plan-cabeza"><h3>Empresas</h3></div>
+      <p class="plan-desc">Para organizaciones con varias áreas, sedes o mayor volumen.</p>
+      <div class="plan-precio">
+        <small>Desde</small>
+        <div class="monto"><span data-mensual="$616.000" data-anual="$6.160.000">$616.000</span><span class="por" data-mensual=" /mes" data-anual=" /año"> /mes</span></div>
+        <div class="uf"><span data-mensual="15 UF al mes" data-anual="150 UF al año">15 UF al mes</span> · + IVA</div>
+        <div class="nota" data-mensual="" data-anual="Equivale a $513.333 al mes"></div>
+      </div>
+      <ul>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Licencias a medida</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Mesas, catálogo y SLA</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Activos básico: hasta 50 activos</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>App móvil incluida</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Condiciones según contrato</li>
+      </ul>
+      <a class="btn btn--linea" href="#demo" data-interes="La suite completa">Hablar con ventas</a>
+    </article>
+  </div>
+
+  <div class="complementos">
+    <div class="caja-precios">
+      <div>
+        <h3>Brío Assets</h3>
+        <p>Se suma a cualquier plan con todas las funciones de inventario, por tramos.</p>
+      </div>
+      <ul class="notas">
+        <li>Todos los planes incluyen Activos básico hasta 50 activos.</li>
+        <li>Cada ficha del inventario cuenta como un activo, sea del tipo que sea.</li>
+        <li>Los activos dados de baja no cuentan.</li>
+        <li>El tope es flexible: al acercarse se avisa y el servicio no se corta.</li>
+      </ul>
+      <div class="precios">
+        <div><span>Hasta 250 activos</span><span class="valor"><strong>$31.000 /mes</strong><small>0,75 UF</small></span></div>
+        <div><span>Hasta 1.000 activos</span><span class="valor"><strong>$82.000 /mes</strong><small>2 UF</small></span></div>
+        <div><span>Hasta 3.000 activos</span><span class="valor"><strong>$164.500 /mes</strong><small>4 UF</small></span></div>
+        <div><span>Hasta 10.000 activos</span><span class="valor"><strong>$493.000 /mes</strong><small>12 UF</small></span></div>
+        <div><span>Más de 10.000 activos</span><span class="valor"><strong>A convenir</strong><small>Según contrato</small></span></div>
+      </div>
+      <div class="solo">
+        <p><strong>Solo Assets</strong><small>Sin plan de mesa de servicios</small></p>
+        <div class="precios">
+          <div><span>Hasta 1.000 activos</span><span class="valor"><strong>$102.500 /mes</strong><small>2,5 UF</small></span></div>
+          <div><span>Hasta 3.000 activos</span><span class="valor"><strong>$164.500 /mes</strong><small>4 UF</small></span></div>
+          <div><span>Más de 3.000 activos</span><span class="valor"><strong>A convenir</strong><small>Según contrato</small></span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="columna">
+      <div class="caja-precios">
+        <div>
+          <h3>Brío Projects</h3>
+          <p>Proyectos y tareas, conectados con tu mesa. Como complemento de un plan, cubre a los agentes con licencia de ese plan.</p>
+        </div>
+        <div class="precios">
+          <div><span>Con plan Básico</span><span class="valor"><strong>$41.000 /mes</strong><small>1 UF</small></span></div>
+          <div><span>Con plan Equipo</span><span class="valor"><strong>$82.000 /mes</strong><small>2 UF</small></span></div>
+          <div><span>Con plan Empresas</span><span class="valor"><strong>A convenir</strong><small>Según contrato</small></span></div>
+          <div><span>Solo Projects · hasta 5 usuarios</span><span class="valor"><strong>$61.500 /mes</strong><small>1,5 UF</small></span></div>
+          <div><span>Solo Projects · hasta 10 usuarios</span><span class="valor"><strong>$102.500 /mes</strong><small>2,5 UF</small></span></div>
+          <div><span>Usuario adicional (sobre 10)</span><span class="valor"><strong>$8.200 /mes</strong><small>0,2 UF</small></span></div>
+        </div>
+      </div>
+      <div class="licencias">
+        <h3>Licencias adicionales</h3>
+        <div class="precios">
+          <div><span><strong>Nominal</strong><small>Asignada a una persona</small></span><span class="valor"><strong>$20.500 /mes</strong><small>0,5 UF</small></span></div>
+          <div><span><strong>Concurrente</strong><small>Compartida, por sesión activa</small></span><span class="valor"><strong>$41.000 /mes</strong><small>1 UF</small></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="nota-legal">Valores en pesos chilenos, más IVA. Equivalencia en UF referencial (UF $41.065, octubre 2026). Precios fijos por 12 meses desde la contratación, con reajuste anual según IPC. Pago anual: 12 meses de servicio pagando 10.</p>
+</section>
+
+<!-- ============ DEMO ============ -->
+<section class="wrap" id="demo" aria-labelledby="demo-titulo">
+  <div class="demo-caja">
+    <div>
+      <h2 class="titulo-2" id="demo-titulo">Muéstranos cómo trabaja hoy tu equipo.</h2>
+      <p class="bajada">Preparamos una demostración con tus mesas, tus activos y tus proyectos. Sin compromiso comercial.</p>
+      <p class="contacto-directo">¿Prefieres escribirnos? <a href="mailto:ventas@briodesk.cl">ventas@briodesk.cl</a></p>
+    </div>
+
+    <form class="formulario" id="form-demo" action="/api/demo" method="post" novalidate>
+      <label>Nombre
+        <input type="text" name="nombre" autocomplete="name" required maxlength="120" aria-describedby="e-nombre">
+        <span class="error" id="e-nombre" aria-live="polite"></span>
+      </label>
+      <label>Empresa
+        <input type="text" name="empresa" autocomplete="organization" required maxlength="160" aria-describedby="e-empresa">
+        <span class="error" id="e-empresa" aria-live="polite"></span>
+      </label>
+      <label class="ancho">Correo corporativo
+        <input type="email" name="correo" autocomplete="email" inputmode="email" required maxlength="200" aria-describedby="e-correo">
+        <span class="error" id="e-correo" aria-live="polite"></span>
+      </label>
+      <label class="ancho">¿Qué te interesa?
+        <select name="interes">
+          <option>Brío Desk</option>
+          <option>Brío Assets</option>
+          <option>Brío Projects</option>
+          <option>La suite completa</option>
+        </select>
+      </label>
+      <div class="trampa" aria-hidden="true">
+        <label>No completar este campo <input type="text" name="sitio_web" tabindex="-1" autocomplete="off"></label>
+      </div>
+      <button class="btn btn--acento" type="submit">Solicitar demostración</button>
+      <p class="mensaje-form" role="status" aria-live="polite"></p>
+    </form>
+
+    <div class="confirmacion" id="demo-ok" tabindex="-1" hidden>
+      <h3>¡Gracias! Recibimos tu solicitud.</h3>
+      <p>Te escribiremos al correo que nos dejaste para coordinar la demostración. Si es urgente, escríbenos a <a href="mailto:ventas@briodesk.cl" style="color:#fff">ventas@briodesk.cl</a>.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="pie">
+  <div class="wrap">
+    <div class="pie-marca">
+      <img src="/assets/img/briodesk-logo.png" alt="BríoDesk" width="153" height="32">
+      <span>Software chileno para equipos de servicio.</span>
+    </div>
+    <nav aria-label="Contacto y legales">
+      <a href="mailto:contacto@briodesk.cl">contacto@briodesk.cl</a>
+      <a href="mailto:ventas@briodesk.cl">ventas@briodesk.cl</a>
+      <a href="/privacidad">Privacidad</a>
+      <a href="/terminos">Términos</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="es-CL">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ingresar · BríoDesk</title>
+<meta name="description" content="Ingresa a la plataforma BríoDesk de tu empresa o solicita la dirección para tu equipo.">
+<meta name="theme-color" content="#062f3b">
+<link rel="canonical" href="https://briodesk.cl/ingresar">
+<link rel="icon" href="/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&amp;family=Figtree:wght@400;500;600;700&amp;display=swap">
+<link rel="stylesheet" href="/assets/css/sitio.css">
+<script src="/assets/js/sitio.js" defer></script>
+<script src="/assets/js/ingresar.js" defer></script>
+</head>
+<body>
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<header class="cabecera-simple oscuro">
+  <div class="wrap">
+    <nav class="nav" aria-label="Principal">
+      <a class="nav-logo" href="/" aria-label="BríoDesk, inicio"><img src="/assets/img/briodesk-logo-claro.png" alt="BríoDesk" width="192" height="40"></a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu">
+        <span class="solo-lector">Menú</span>
+        <svg class="abrir" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <svg class="cerrar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+      <div class="nav-menu" id="nav-menu">
+        <a href="/#suite">Productos</a>
+        <a href="/#planes">Planes</a>
+        <a href="/ingresar">Ingresar</a>
+        <a class="btn btn--acento" href="/#demo">Solicitar demo</a>
+      </div>
+    </nav>
+  </div>
+</header>
+<main id="contenido" class="documento ingresar">
+  <h1>Ingresa a tu BríoDesk</h1>
+  <p>Cada empresa tiene su propia dirección. Escribe la de la tuya y te llevamos.</p>
+
+  <form class="form-claro" id="form-ingresar" novalidate>
+    <label for="subdominio">Dirección de tu empresa</label>
+    <div class="subdominio">
+      <span aria-hidden="true">https://</span>
+      <input id="subdominio" name="subdominio" type="text" inputmode="url" autocomplete="off" autocapitalize="none" spellcheck="false" required maxlength="63" placeholder="tuempresa" aria-describedby="sub-ayuda sub-error">
+      <span aria-hidden="true">.briodesk.cl</span>
+    </div>
+    <p class="ayuda" id="sub-ayuda">Por ejemplo, si entras a acme.briodesk.cl, escribe <b>acme</b>.</p>
+    <p class="error-claro" id="sub-error" role="alert"></p>
+    <button class="btn btn--oscuro" type="submit">Ingresar</button>
+  </form>
+
+  <section class="solicitar" id="solicitar" aria-labelledby="solicitar-titulo">
+    <h2 id="solicitar-titulo">¿Tu empresa aún no tiene una dirección?</h2>
+    <p>Déjanos tus datos y la dirección que te gustaría. Te respondemos desde <a href="mailto:ventas@briodesk.cl">ventas@briodesk.cl</a>.</p>
+    <form class="form-claro" id="form-subdominio" action="/api/subdominio" method="post" novalidate>
+      <label>Empresa<input type="text" name="empresa" autocomplete="organization" required maxlength="160"></label>
+      <label>Nombre<input type="text" name="nombre" autocomplete="name" required maxlength="120"></label>
+      <label>Correo corporativo<input type="email" name="correo" autocomplete="email" inputmode="email" required maxlength="200"></label>
+      <label>Dirección que te gustaría
+        <span class="subdominio"><span aria-hidden="true">https://</span><input type="text" name="subdominio" autocomplete="off" autocapitalize="none" spellcheck="false" required maxlength="63" placeholder="tuempresa"><span aria-hidden="true">.briodesk.cl</span></span>
+      </label>
+      <div class="trampa" aria-hidden="true"><label>No completar este campo <input type="text" name="sitio_web" tabindex="-1" autocomplete="off"></label></div>
+      <p class="error-claro" role="alert"></p>
+      <button class="btn btn--acento" type="submit">Solicitar dirección</button>
+    </form>
+    <div class="confirmacion-clara" id="subdominio-ok" tabindex="-1" hidden>
+      <h3>¡Listo! Recibimos tu solicitud.</h3>
+      <p>Te escribiremos al correo que nos dejaste para activar la dirección de tu empresa.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="pie">
+  <div class="wrap">
+    <div class="pie-marca">
+      <img src="/assets/img/briodesk-logo.png" alt="BríoDesk" width="153" height="32">
+      <span>Software chileno para equipos de servicio.</span>
+    </div>
+    <nav aria-label="Contacto y legales">
+      <a href="mailto:contacto@briodesk.cl">contacto@briodesk.cl</a>
+      <a href="mailto:ventas@briodesk.cl">ventas@briodesk.cl</a>
+      <a href="/privacidad">Privacidad</a>
+      <a href="/terminos">Términos</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>
