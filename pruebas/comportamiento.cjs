@@ -1,5 +1,8 @@
 /* Pruebas de comportamiento del sitio (Playwright).
- * Uso: npx http-server public -p 8787 -e html  y luego  node pruebas/comportamiento.cjs [carpeta-capturas] */
+ * Corre contra el Worker en local (entorno «prueba», con la API de formularios):
+ *   npx wrangler d1 migrations apply DB --local --env prueba
+ *   npx wrangler dev --env prueba --port 8787
+ *   node pruebas/comportamiento.cjs [carpeta-capturas] */
 const { chromium } = require(process.env.PLAYWRIGHT_PATH || 'playwright');
 const assert = (c, m) => { console.log((c ? 'OK  ' : 'FAIL') + ' ' + m); if (!c) process.exitCode = 1; };
 const BASE = process.env.BASE_URL || 'http://127.0.0.1:8787';
@@ -65,8 +68,9 @@ const BASE = process.env.BASE_URL || 'http://127.0.0.1:8787';
   await p.fill('[name=correo]', 'ana@acme.cl');
   await p.click('#form-demo button[type=submit]');
   await p.clock.runFor(500); await p.waitForTimeout(300);
-  assert((await p.textContent('.mensaje-form')).includes('No pudimos'), 'sin endpoint muestra error honesto (etapa 4 pendiente)');
-  // plan preselecciona interés
+  assert(await p.isVisible('#demo-ok') && !(await p.isVisible('#form-demo')), 'envío exitoso muestra la confirmación');
+  // plan preselecciona interés (con el formulario de nuevo visible)
+  await p.$eval('#form-demo', (f) => { f.hidden = false; });
   await p.click('.plan:nth-child(3) .btn');
   assert(await p.$eval('[name=interes]', e => e.value) === 'La suite completa', 'Hablar con ventas preselecciona interés');
   assert(errs.length === 0, 'sin errores JS ' + errs.join('|'));
@@ -97,6 +101,25 @@ const BASE = process.env.BASE_URL || 'http://127.0.0.1:8787';
   await g.fill('#subdominio', 'mal dominio!');
   await g.click('#form-ingresar button');
   assert((await g.textContent('#sub-error')).includes('letras'), 'ingresar valida subdominio');
+  await g.fill('#subdominio', 'zzz');
+  await g.click('#form-ingresar button');
+  await g.waitForFunction(() => document.querySelector('#sub-error').textContent.includes('No encontramos'));
+  assert(true, 'dirección inexistente muestra aviso');
+  await g.click('#sub-error a[href="#solicitar"]');
+  assert(await g.inputValue('#form-subdominio [name=subdominio]') === 'zzz', 'el enlace propone la misma dirección para solicitarla');
+  await g.fill('#form-subdominio [name=empresa]', 'Zeta'); await g.fill('#form-subdominio [name=nombre]', 'Zoe');
+  await g.fill('#form-subdominio [name=correo]', 'zoe@zeta.cl');
+  await g.waitForTimeout(2600);
+  await g.click('#form-subdominio button[type=submit]');
+  await g.waitForSelector('#subdominio-ok:not([hidden])');
+  assert(true, 'solicitud de dirección enviada');
+  await g.goto(BASE + '/ingresar');
+  await g.fill('#form-subdominio [name=empresa]', 'Acme'); await g.fill('#form-subdominio [name=nombre]', 'Ana');
+  await g.fill('#form-subdominio [name=correo]', 'ana@acme.cl'); await g.fill('#form-subdominio [name=subdominio]', 'acme');
+  await g.waitForTimeout(2600);
+  await g.click('#form-subdominio button[type=submit]');
+  await g.waitForFunction(() => document.querySelector('#form-subdominio .error-claro').textContent.includes('ya está en uso'));
+  assert(true, 'dirección ocupada muestra el mensaje del servidor');
   await g.fill('#subdominio', 'https://ACME.briodesk.cl/login');
   await Promise.all([g.waitForURL(/acme\.briodesk\.cl/), g.click('#form-ingresar button')]);
   assert(g.url() === 'https://acme.briodesk.cl/', 'normaliza y redirige a acme.briodesk.cl');

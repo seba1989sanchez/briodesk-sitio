@@ -3,6 +3,7 @@
   "use strict";
 
   var VALIDO = /^[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?$/;
+  var VALIDO_INGRESO = /^[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?(?:\.demo)?$/; // también acepta demos prestados
 
   // Acepta «acme», «acme.briodesk.cl» o «https://acme.briodesk.cl/...».
   function normalizar(texto) {
@@ -13,6 +14,7 @@
   }
 
   var correoValido = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  var cargada = Date.now(); // para descartar envíos instantáneos (bots)
 
   /* ---------- Ir al subdominio ---------- */
 
@@ -39,7 +41,7 @@
       e.preventDefault();
       var sub = normalizar(input.value);
       if (!sub) return fallar("Escribe la dirección de tu empresa.");
-      if (!VALIDO.test(sub) || sub.indexOf(".") >= 0) return fallar("Usa solo letras, números y guiones, sin espacios.");
+      if (!VALIDO_INGRESO.test(sub)) return fallar("Usa solo letras, números y guiones, sin espacios.");
       boton.disabled = true;
       boton.textContent = "Buscando…";
       var destino = "https://" + sub + ".briodesk.cl/";
@@ -96,18 +98,27 @@
       var datos = {};
       new FormData(sol).forEach(function (v, k) { datos[k] = String(v).trim(); });
       datos.subdominio = sub;
+      datos.espera = Date.now() - cargada;
       fetch(sol.action, {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify(datos)
       }).then(function (r) {
-        if (!r.ok) throw new Error("HTTP " + r.status);
-        sol.hidden = true;
-        var ok = document.getElementById("subdominio-ok");
-        ok.hidden = false;
-        ok.focus();
-      }).catch(function () {
-        msj.innerHTML = 'No pudimos enviar la solicitud. Inténtalo de nuevo o escríbenos a <a href="mailto:ventas@briodesk.cl">ventas@briodesk.cl</a>.';
+        return r.json().catch(function () { return {}; }).then(function (res) {
+          if (!r.ok) { var err = new Error(res.error || "HTTP " + r.status); err.servidor = res; throw err; }
+          sol.hidden = true;
+          var ok = document.getElementById("subdominio-ok");
+          ok.hidden = false;
+          ok.focus();
+        });
+      }).catch(function (err) {
+        var res = err.servidor || {};
+        if (res.campo && sol.elements[res.campo]) {
+          sol.elements[res.campo].setAttribute("aria-invalid", "true");
+          sol.elements[res.campo].focus();
+        }
+        msj.innerHTML = res.error ? res.error.replace(/[<>&]/g, "")
+          : 'No pudimos enviar la solicitud. Inténtalo de nuevo o escríbenos a <a href="mailto:ventas@briodesk.cl">ventas@briodesk.cl</a>.';
         btn.disabled = false;
         btn.textContent = "Solicitar dirección";
       });

@@ -270,6 +270,7 @@
 
   /* ---------- Formulario de demo ---------- */
 
+  var cargada = Date.now(); // para descartar envíos instantáneos (bots)
   var form = document.getElementById("form-demo");
   if (form) {
     var correoValido = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
@@ -313,19 +314,29 @@
       boton.textContent = "Enviando…";
       var datos = {};
       new FormData(form).forEach(function (v, k) { datos[k] = String(v).trim(); });
+      datos.espera = Date.now() - cargada;
       fetch(form.action, {
         method: "POST",
         headers: { "Content-Type": "application/json", "Accept": "application/json" },
         body: JSON.stringify(datos)
       }).then(function (r) {
-        if (!r.ok) throw new Error("HTTP " + r.status);
-        form.hidden = true;
-        var ok = document.getElementById("demo-ok");
-        ok.hidden = false;
-        ok.focus();
-      }).catch(function () {
-        mensaje.classList.add("mal");
-        mensaje.innerHTML = 'No pudimos enviar la solicitud. Inténtalo de nuevo o escríbenos a <a href="mailto:ventas@briodesk.cl" style="color:#fff">ventas@briodesk.cl</a>.';
+        return r.json().catch(function () { return {}; }).then(function (res) {
+          if (!r.ok) { var err = new Error(res.error || "HTTP " + r.status); err.servidor = res; throw err; }
+          form.hidden = true;
+          var ok = document.getElementById("demo-ok");
+          ok.hidden = false;
+          ok.focus();
+        });
+      }).catch(function (err) {
+        var res = err.servidor || {};
+        if (res.campo && form.elements[res.campo]) {
+          marcarError(form.elements[res.campo], res.error);
+          form.elements[res.campo].focus();
+        } else {
+          mensaje.classList.add("mal");
+          mensaje.innerHTML = (res.error ? res.error.replace(/[<>&]/g, "") + " " : "No pudimos enviar la solicitud. ") +
+            'Si el problema sigue, escríbenos a <a href="mailto:ventas@briodesk.cl" style="color:#fff">ventas@briodesk.cl</a>.';
+        }
         boton.disabled = false;
         boton.textContent = "Solicitar demostración";
       });

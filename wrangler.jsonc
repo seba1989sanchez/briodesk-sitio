@@ -1,11 +1,60 @@
-// Sitio público briodesk.cl: Worker con archivos estáticos.
-// Etapa 4 agrega el script del Worker (formularios en /api/*) y la base D1.
+// Sitio público briodesk.cl: Worker con archivos estáticos (public/) y la API
+// de formularios (src/index.js). Ver README.
 {
+  "$schema": "node_modules/wrangler/config-schema.json",
   "name": "briodesk-sitio",
-  "compatibility_date": "2025-09-01",
+  "main": "src/index.js",
+  "compatibility_date": "2026-09-01",
+  "workers_dev": true,
+  "preview_urls": false,
+  "keep_vars": true,
+  "observability": { "enabled": true },
   "assets": {
     "directory": "./public",
+    "binding": "ASSETS",
     "html_handling": "auto-trailing-slash",
-    "not_found_handling": "404-page"
+    "not_found_handling": "404-page",
+    // El Worker pasa primero por todo para redirigir www/app y agregar cabeceras.
+    "run_worker_first": true
+  },
+  "vars": {
+    // Quién recibe el aviso de cada solicitud.
+    "AVISO_A": "ventas@briodesk.cl"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "briodesk-sitio-db",
+      "database_id": "b22268c1-6db1-4828-adac-3aa032c43a5f",
+      "migrations_dir": "migraciones"
+    }
+  ],
+  "ratelimits": [
+    { "name": "LIMITE_ENVIOS", "namespace_id": "4201", "simple": { "limit": 5, "period": 60 } },
+    { "name": "LIMITE_CONSULTAS", "namespace_id": "4202", "simple": { "limit": 30, "period": 60 } }
+  ],
+  // Reintenta los avisos por correo que fallaron.
+  "triggers": { "crons": ["*/30 * * * *"] },
+  // Mismas credenciales de Gmail que el ITSM y Brío Control (Secrets Store).
+  "secrets_store_secrets": [
+    { "binding": "GMAIL_SENDER", "store_id": "b2c66810400341cb8daf5de900adbe56", "secret_name": "GMAIL_SENDER" },
+    { "binding": "GMAIL_CLIENT_ID", "store_id": "b2c66810400341cb8daf5de900adbe56", "secret_name": "GMAIL_CLIENT_ID" },
+    { "binding": "GMAIL_CLIENT_SECRET", "store_id": "b2c66810400341cb8daf5de900adbe56", "secret_name": "GMAIL_CLIENT_SECRET" },
+    { "binding": "GMAIL_REFRESH_TOKEN", "store_id": "b2c66810400341cb8daf5de900adbe56", "secret_name": "GMAIL_REFRESH_TOKEN" }
+  ],
+  // Dominios: se agregan en la etapa de cambio de DNS (ver README, «Publicación»).
+  // Solo para las pruebas locales (npm test): sin Secrets Store, con Gmail simulado
+  // y sin consultar dominios reales. No se despliega.
+  "env": {
+    "prueba": {
+      "vars": { "AVISO_A": "ventas@briodesk.cl", "SUBDOMINIOS_PRUEBA": "acme,beta,acme.demo" },
+      "d1_databases": [
+        { "binding": "DB", "database_name": "briodesk-sitio-db", "database_id": "local-prueba", "migrations_dir": "migraciones" }
+      ],
+      "ratelimits": [
+        { "name": "LIMITE_ENVIOS", "namespace_id": "4201", "simple": { "limit": 6, "period": 60 } },
+        { "name": "LIMITE_CONSULTAS", "namespace_id": "4202", "simple": { "limit": 100, "period": 60 } }
+      ]
+    }
   }
 }
