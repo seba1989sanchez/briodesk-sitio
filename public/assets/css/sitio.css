@@ -659,3 +659,7 @@ button, input, select, textarea { font: inherit; }
   .subdominio input { padding-left: 12px; }
   .subdominio > span { font-size: 14px; padding: 0 8px; }
 }
+
+/* Datos por completar en textos legales (no debe quedar ninguno al publicar) */
+.pendiente { background: var(--alerta-fondo); color: var(--alerta); padding: 0 4px; border-radius: 4px; font-weight: 600; }
+.documento ul { padding-left: 22px; }
