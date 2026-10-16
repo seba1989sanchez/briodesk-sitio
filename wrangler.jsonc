@@ -42,7 +42,13 @@
     { "binding": "GMAIL_CLIENT_SECRET", "store_id": "b2c66810400341cb8daf5de900adbe56", "secret_name": "GMAIL_CLIENT_SECRET" },
     { "binding": "GMAIL_REFRESH_TOKEN", "store_id": "b2c66810400341cb8daf5de900adbe56", "secret_name": "GMAIL_REFRESH_TOKEN" }
   ],
-  // Dominios: se agregan en la etapa de cambio de DNS (ver README, «Publicación»).
+  // Dominios propios: Cloudflare crea los registros DNS y certificados al desplegar.
+  // www redirige a briodesk.cl y app a /ingresar (ver src/index.js).
+  "routes": [
+    { "pattern": "briodesk.cl", "custom_domain": true },
+    { "pattern": "www.briodesk.cl", "custom_domain": true },
+    { "pattern": "app.briodesk.cl", "custom_domain": true }
+  ],
   // Solo para las pruebas locales (npm test): sin Secrets Store, con Gmail simulado
   // y sin consultar dominios reales. No se despliega.
   "env": {
