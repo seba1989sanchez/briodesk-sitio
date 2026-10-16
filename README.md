@@ -8,8 +8,8 @@ Sitio de BríoDesk: HTML, CSS y JavaScript sin frameworks ni dependencias en el 
 public/
   index.html          Landing
   ingresar.html       /ingresar: lleva al subdominio de la empresa o permite solicitar uno
-  privacidad.html     /privacidad  (texto pendiente de traspaso desde el sitio anterior)
-  terminos.html       /terminos    (texto pendiente de traspaso desde el sitio anterior)
+  privacidad.html     /privacidad  (versión preliminar, sept. 2026)
+  terminos.html       /terminos    (versión preliminar, sept. 2026)
   gracias.html        Confirmación para envíos sin JavaScript
   404.html
   assets/css/sitio.css    Tokens de marca y estilos
