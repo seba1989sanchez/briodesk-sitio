@@ -3,6 +3,9 @@
 //   POST /api/demo                  Solicitud de demostración
 //   POST /api/subdominio            Solicitud de una dirección nueva (xxx.briodesk.cl)
 //   GET  /api/subdominio/:nombre    ¿Existe xxx.briodesk.cl? → {existe: true|false}
+//   GET  /api/interno/solicitudes?desde=N   Solicitudes para la bandeja de BríoDesk
+//        (solo con «Authorization: Bearer <SOLICITUDES_LLAVE>»; nada se crea solo,
+//        en BríoDesk una persona aprueba o rechaza cada una)
 //
 // Cada solicitud se guarda en D1 y se avisa por correo a AVISO_A (Gmail, mismas
 // credenciales que el ITSM). Si el correo falla, el cron lo reintenta.
@@ -192,6 +195,24 @@ async function guardar(env, ctx, request, s) {
   return r.id;
 }
 
+/* ---------------- Acceso interno (BríoDesk) ---------------- */
+
+// Compara en tiempo constante para no filtrar la llave por cuánto tarda la respuesta.
+async function igualSeguro(a, b) {
+  const enc = new TextEncoder();
+  const [ha, hb] = await Promise.all([crypto.subtle.digest('SHA-256', enc.encode(a)), crypto.subtle.digest('SHA-256', enc.encode(b))]);
+  const x = new Uint8Array(ha), y = new Uint8Array(hb);
+  let dif = 0;
+  for (let i = 0; i < x.length; i++) dif |= x[i] ^ y[i];
+  return dif === 0;
+}
+async function autorizarInterno(request, env) {
+  const llave = String(env.SOLICITUDES_LLAVE || '');
+  if (llave.length < 24) throw new Problema(503, 'La bandeja de BríoDesk no está configurada.');
+  const dada = (request.headers.get('authorization') || '').replace(/^Bearer\s+/i, '');
+  if (!dada || !(await igualSeguro(dada, llave))) throw new Problema(401, 'No autorizado.');
+}
+
 /* ---------------- Rutas de la API ---------------- */
 
 const respuestaOk = (html, destino) => html
@@ -223,6 +244,14 @@ async function api(request, env, ctx, url) {
     if (await existeSubdominio(env, subdominio)) throw new Problema(409, `${subdominio}.${ZONA} ya está en uso. Prueba con otra.`, 'subdominio');
     await guardar(env, ctx, request, {tipo: 'subdominio', ...contacto, subdominio});
     return respuestaOk(html, '/gracias');
+  }
+
+  if (ruta === '/api/interno/solicitudes' && request.method === 'GET') {
+    await limitar(env.LIMITE_CONSULTAS, `interno:${ip}`);
+    await autorizarInterno(request, env);
+    const desde = Math.max(0, Math.floor(Number(url.searchParams.get('desde')) || 0));
+    const {results} = await env.DB.prepare('SELECT id,tipo,nombre,empresa,correo,interes,subdominio,pais,creado_en FROM solicitudes WHERE id>? ORDER BY id LIMIT 200').bind(desde).all();
+    return json({solicitudes: results || []});
   }
 
   const m = ruta.match(/^\/api\/subdominio\/([^/]+)$/);
