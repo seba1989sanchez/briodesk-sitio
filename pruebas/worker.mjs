@@ -37,7 +37,7 @@ await new Promise((r) => gmail.listen(GPORT, '127.0.0.1', r));
 
 fs.writeFileSync(path.join(tmp, '.dev.vars'), [
   'GMAIL_SENDER="avisos@briodesk.cl"', 'GMAIL_CLIENT_ID="id"', 'GMAIL_CLIENT_SECRET="secreto"', 'GMAIL_REFRESH_TOKEN="refresco"',
-  `GOOGLE_TOKEN_URL="http://127.0.0.1:${GPORT}/token"`, `GMAIL_SEND_URL="http://127.0.0.1:${GPORT}/send"`, ''].join('\n'));
+  `GOOGLE_TOKEN_URL="http://127.0.0.1:${GPORT}/token"`, `GMAIL_SEND_URL="http://127.0.0.1:${GPORT}/send"`, 'SOLICITUDES_LLAVE="llave-de-prueba-para-la-bandeja-1234"', ''].join('\n'));
 
 const wr = (args) => execFileSync('npx', ['wrangler', ...args], {cwd: root, encoding: 'utf8', env: {...process.env, WRANGLER_SEND_METRICS: 'false'}});
 wr(['d1', 'migrations', 'apply', 'DB', '--local', '--env', 'prueba', '--persist-to', estado]);
@@ -101,6 +101,19 @@ try {
     assert.match(c.from, /Sitio BríoDesk/);
     assert.match(c.html, /Ana Pérez/);
     assert.ok(await esperar(async () => (await sql('SELECT aviso_enviado_en FROM solicitudes WHERE id=1'))[0].aviso_enviado_en !== null));
+  });
+
+  await paso('bandeja de BríoDesk: solo con la llave, y desde un id', async () => {
+    const pedir = (q, llave) => fetch(`${BASE}/api/interno/solicitudes${q}`, {headers: llave ? {authorization: `Bearer ${llave}`} : {}});
+    assert.equal((await pedir('', '')).status, 401);
+    assert.equal((await pedir('', 'otra-llave-cualquiera-de-prueba-xyz')).status, 401);
+    let r = await pedir('', 'llave-de-prueba-para-la-bandeja-1234');
+    assert.equal(r.status, 200);
+    const {solicitudes} = await r.json();
+    assert.equal(solicitudes.length, 1);
+    assert.deepEqual({id: solicitudes[0].id, tipo: solicitudes[0].tipo, correo: solicitudes[0].correo, interes: solicitudes[0].interes}, {id: 1, tipo: 'demo', correo: 'ana@acme.cl', interes: 'Brío Assets'});
+    r = await pedir('?desde=1', 'llave-de-prueba-para-la-bandeja-1234');
+    assert.deepEqual((await r.json()).solicitudes, []);
   });
 
   await paso('valida los campos en el servidor', async () => {

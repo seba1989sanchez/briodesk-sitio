@@ -40,6 +40,18 @@ npm test                              # Worker de punta a punta (levanta su prop
 node pruebas/comportamiento.cjs       # navegador, con el wrangler dev de arriba corriendo
 ```
 
+## Solicitudes y bandeja de BríoDesk
+
+Las solicitudes de demo y de dirección **no crean nada solas**: se guardan en D1, se avisa por correo a `AVISO_A` y aparecen en la bandeja de BríoDesk (Empresas → Demos para prospectos → Solicitudes), donde el superusuario las aprueba o rechaza.
+
+BríoDesk las lee de `GET /api/interno/solicitudes?desde=<id>` con `Authorization: Bearer <SOLICITUDES_LLAVE>` (máx. 200 por consulta, limitado por IP). Sin la llave el endpoint responde 503 y todo sigue funcionando por correo.
+
+Configuración (una vez):
+
+1. Genera una llave larga y aleatoria (al menos 24 caracteres), por ejemplo con un gestor de contraseñas.
+2. Workers → `briodesk-sitio` → Configuración → Variables y secretos: secreto **`SOLICITUDES_LLAVE`**.
+3. Workers → `briodesk-itsm-prod` → secreto **`SITIO_SOLICITUDES_KEY`** con el mismo valor.
+
 ## Cómo funcionan las animaciones
 
 Cada bloque con `data-rotador` es un `tablist` con sus paneles. Avanza solo cada `data-intervalo` ms, pero:
