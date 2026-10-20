@@ -4,15 +4,21 @@ name: Desplegar sitio briodesk.cl
 on:
   push:
     branches: [main]
+    paths-ignore:
+      - "**/*.md"
   pull_request:
+    paths-ignore:
+      - "**/*.md"
   workflow_dispatch:
 
 permissions:
   contents: read
 
+# En un PR, un push nuevo cancela la prueba anterior; en main nunca se corta
+# un despliegue a medias.
 concurrency:
   group: briodesk-sitio-${{ github.ref }}
-  cancel-in-progress: false
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
   test:
