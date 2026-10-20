@@ -1,0 +1,19 @@
+name: Verificar llave de la bandeja (temporal)
+on:
+  push:
+    branches: [claude/verificar-llave]
+permissions:
+  contents: read
+jobs:
+  verificar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Consultar el sitio sin llave y con una llave falsa
+        run: |
+          a=$(curl -s -o /dev/null -w "%{http_code}" https://briodesk.cl/api/interno/solicitudes)
+          b=$(curl -s -o /dev/null -w "%{http_code}" -H "authorization: Bearer llave-falsa-solo-para-verificar-000000" https://briodesk.cl/api/interno/solicitudes)
+          c=$(curl -s -o /dev/null -w "%{http_code}" https://briodesk.cl/)
+          echo "::notice title=sin-llave::$a"
+          echo "::notice title=llave-falsa::$b"
+          echo "::notice title=landing::$c"
