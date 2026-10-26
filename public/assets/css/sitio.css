@@ -551,7 +551,7 @@ button, input, select, textarea { font: inherit; }
 .plan .btn { margin-top: auto; font-weight: 800; font-size: 15px; }
 .plan .btn--linea { background: var(--blanco); color: var(--petroleo); border-color: var(--petroleo); }
 
-.complementos { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 20px; margin-top: 20px; }
+.complementos { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 20px; margin-top: 20px; align-items: start; }
 .caja-precios { background: var(--blanco); border-radius: 24px; padding: 28px; display: flex; flex-direction: column; gap: 14px; }
 .caja-precios h3 { margin: 0 0 6px; font-family: var(--f-titulo); font-size: 24px; font-weight: 800; }
 .caja-precios > div > p { margin: 0; font-size: 14px; color: var(--texto-3); line-height: 1.55; }
@@ -658,4 +658,21 @@ button, input, select, textarea { font: inherit; }
   .subdominio > span:first-child { display: none; }
   .subdominio input { padding-left: 12px; }
   .subdominio > span { font-size: 14px; padding: 0 8px; }
+}
+
+/* Planes: Suites y Desk, tabla de Assets con Desk / solo, condiciones */
+.subtitulo-planes { margin: 8px 0 16px; font-family: var(--f-titulo); font-size: 22px; font-weight: 700; letter-spacing: -.02em; }
+#planes .grilla + .subtitulo-planes { margin-top: 36px; }
+.precios--dos > div { display: grid; grid-template-columns: 1fr auto auto; gap: 4px 18px; }
+.precios--dos > div > span:first-child { align-self: center; }
+.precios-cabeza { font-size: 12px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--texto-3); padding-bottom: 6px !important; }
+.precios-cabeza span:not(:first-child) { text-align: right; min-width: 96px; }
+.precios--dos .valor { min-width: 96px; }
+.caja-nota { margin: 0; font-size: 13.5px; line-height: 1.55; color: var(--texto-3); }
+.condiciones { margin: 24px 0 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 10px 28px; font-size: 15px; font-weight: 600; color: var(--texto-2); }
+.condiciones li::before { content: "✓ "; color: var(--verde-agua); }
+@media (max-width: 420px) {
+  .precios--dos > div { grid-template-columns: 1fr auto; }
+  .precios--dos > div > span:first-child { grid-column: 1 / -1; }
+  .precios-cabeza span:first-child { display: none; }
 }

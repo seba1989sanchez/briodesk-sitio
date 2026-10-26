@@ -7,14 +7,18 @@
 //        (solo con «Authorization: Bearer <SOLICITUDES_LLAVE>»; nada se crea solo,
 //        en BríoDesk una persona aprueba o rechaza cada una)
 //
+// La portada toma los precios de la plataforma (src/precios.js).
+//
 // Cada solicitud se guarda en D1 y se avisa por correo a AVISO_A (Gmail, mismas
 // credenciales que el ITSM). Si el correo falla, el cron lo reintenta.
+
+import {aplicarPrecios, preciosVigentes} from './precios.js';
 
 const ZONA = 'briodesk.cl';
 const HOST_PRINCIPAL = 'briodesk.cl';
 const CORREO = /^[^\s@<>()",;:\\[\]]+@[^\s@<>()",;:\\[\]]+\.[^\s@<>()",;:\\[\]]{2,}$/;
 const SUBDOMINIO = /^[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?(?:\.demo)?$/;
-const INTERESES = ['Brío Desk', 'Brío Assets', 'Brío Projects', 'La suite completa'];
+const INTERESES = ['Brío Desk', 'Brío Assets', 'Brío Projects', 'Brío InOut', 'La suite completa'];
 // Direcciones de la propia infraestructura: no se ofrecen para ingresar ni para pedir.
 const INTERNOS = new Set(['www', 'app', 'api', 'netmon', 'desarrollo', 'licencias', 'consola', 'soporte', 'demo',
   'admin', 'mail', 'correo', 'smtp', 'ftp', 'status', 'estado', 'ayuda', 'docs', 'blog', 'sitio', 'briodesk', 'brio']);
@@ -288,7 +292,15 @@ export default {
         return json({ok: false, error: 'No pudimos procesar la solicitud.'}, 500);
       }
     }
-    return conCabeceras(await env.ASSETS.fetch(request));
+    let respuesta = await env.ASSETS.fetch(request);
+    // La portada lleva los precios vigentes de la plataforma (o los del HTML si no responde).
+    if (['/', '/index.html', '/index'].includes(url.pathname) && (respuesta.headers.get('content-type') || '').includes('text/html')) {
+      const precios = await preciosVigentes(env, ctx);
+      respuesta = precios ? aplicarPrecios(respuesta, precios.valores) : respuesta;
+      respuesta = new Response(respuesta.body, respuesta);
+      respuesta.headers.set('x-precios', precios ? precios.version : 'respaldo');
+    }
+    return conCabeceras(respuesta);
   },
 
   // Reintenta los avisos que no salieron (Gmail caído, credenciales vencidas…).
