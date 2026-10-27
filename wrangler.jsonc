@@ -53,7 +53,8 @@
   // y sin consultar dominios reales. No se despliega.
   "env": {
     "prueba": {
-      "vars": { "AVISO_A": "ventas@briodesk.cl", "SUBDOMINIOS_PRUEBA": "acme,beta,acme.demo" },
+      // PRECIOS_URL vacío: sin consultar la plataforma (las pruebas la simulan en .dev.vars).
+      "vars": { "AVISO_A": "ventas@briodesk.cl", "SUBDOMINIOS_PRUEBA": "acme,beta,acme.demo", "PRECIOS_URL": "", "PRECIOS_SIN_CACHE": "1" },
       "d1_databases": [
         { "binding": "DB", "database_name": "briodesk-sitio-db", "database_id": "local-prueba", "migrations_dir": "migraciones" }
       ],

@@ -539,7 +539,7 @@
 <section class="seccion wrap" id="suite" aria-labelledby="suite-titulo">
   <p class="antetitulo">La suite Brío</p>
   <h2 class="titulo-2" id="suite-titulo">Contrata lo que necesitas. Suma el resto cuando crezcas.</h2>
-  <p class="bajada bajada--g">Tres productos que funcionan solos o conectados entre sí.</p>
+  <p class="bajada bajada--g">Cuatro productos que funcionan solos o conectados entre sí.</p>
   <div class="grilla" style="--min: 300px">
     <article class="tarjeta tarjeta--producto eleva">
       <h3>Brío Desk</h3>
@@ -553,18 +553,23 @@
       <h3>Brío Projects</h3>
       <p>Proyectos y tareas del área: aperturas, migraciones, renovaciones. Cada tarea con responsable y avance visible.</p>
     </article>
+    <article class="tarjeta tarjeta--producto eleva">
+      <h3>Brío InOut</h3>
+      <p>Proveedores y contratos en un solo lugar: vigencias, renovaciones con aviso, pagos, reajustes IPC y conexión con tu sistema de facturación.</p>
+    </article>
   </div>
 </section>
 
 <!-- ============ PLANES ============
-     Precios oficiales en pesos, fijos (no se calculan desde la UF).
-     Se actualizan una vez al año: ver README, sección «Actualizar precios». -->
+     Precios oficiales en pesos, netos. Los textos con data-p los reemplaza el
+     Worker con la lista vigente de la plataforma (GET /api/pricing); los que
+     quedan aquí son el respaldo y se regeneran con «npm run precios:respaldo». -->
 <section class="wrap" id="planes" aria-labelledby="planes-titulo" data-planes>
   <div class="cabecera">
     <div>
       <p class="antetitulo">Planes</p>
       <h2 class="titulo-2" id="planes-titulo">Precios claros, en pesos chilenos.</h2>
-      <p class="bajada">Sin dólares ni tipo de cambio. El precio se mantiene fijo por 12 meses y se reajusta una vez al año según IPC.</p>
+      <p class="bajada">Sin dólares ni tipo de cambio. El precio se mantiene fijo por 12 meses y se reajusta una vez al año según IPC, con aviso de 30 días.</p>
     </div>
     <div class="periodo" role="tablist" aria-label="Periodo de pago">
       <button role="tab" id="t-mensual" aria-selected="true" aria-controls="planes-grilla" data-periodo="mensual">Mensual</button>
@@ -572,62 +577,121 @@
     </div>
   </div>
 
+  <h3 class="subtitulo-planes">Suite BríoDesk: los cuatro productos juntos</h3>
   <div class="grilla" id="planes-grilla" style="--min: 300px" aria-live="polite">
+    <article class="plan eleva">
+      <div class="plan-cabeza"><h3>Suite Básica</h3></div>
+      <p class="plan-desc">Brío Desk Básico con Assets, Projects e InOut, para partir completo.</p>
+      <div class="plan-precio">
+        <small>Precio</small>
+        <div class="monto"><span data-p="suite.basica.precio" data-mensual="$189.000" data-anual="$1.890.000">$189.000</span><span class="por" data-mensual=" /mes" data-anual=" /año"> /mes</span></div>
+        <div class="uf"><span data-p="suite.basica.uf" data-mensual="4,75 UF al mes" data-anual="47,5 UF al año">4,75 UF al mes</span> · + IVA</div>
+        <div class="nota" data-p="suite.basica.nota" data-mensual="" data-anual="Equivale a $157.500 al mes"></div>
+      </div>
+      <ul>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Brío Desk Básico</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-p="suite.basica.assets">Brío Assets hasta 250 activos</span></li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Brío Projects y Brío InOut</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-p="suite.basica.ahorro">Ahorras $39.700 al mes frente a contratar cada módulo</span></li>
+      </ul>
+      <a class="btn btn--linea" href="#demo" data-interes="La suite completa">Solicitar demo</a>
+    </article>
+
+    <article class="plan plan--destacado eleva">
+      <div class="plan-cabeza"><h3>Suite Equipo</h3><span class="insignia">Recomendada</span></div>
+      <p class="plan-desc">Para áreas que atienden a toda la empresa: más licencias y más activos.</p>
+      <div class="plan-precio">
+        <small>Precio</small>
+        <div class="monto"><span data-p="suite.equipo.precio" data-mensual="$449.000" data-anual="$4.490.000">$449.000</span><span class="por" data-mensual=" /mes" data-anual=" /año"> /mes</span></div>
+        <div class="uf"><span data-p="suite.equipo.uf" data-mensual="11,25 UF al mes" data-anual="112,5 UF al año">11,25 UF al mes</span> · + IVA</div>
+        <div class="nota" data-p="suite.equipo.nota" data-mensual="" data-anual="Equivale a $374.167 al mes"></div>
+      </div>
+      <ul>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Brío Desk Equipo</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-p="suite.equipo.assets">Brío Assets hasta 1.000 activos</span></li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Brío Projects y Brío InOut, con conectores de facturación incluidos</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-p="suite.equipo.ahorro">Ahorras $88.800 al mes frente a contratar cada módulo</span></li>
+      </ul>
+      <a class="btn btn--acento" href="#demo" data-interes="La suite completa">Solicitar demo</a>
+    </article>
+
+    <article class="plan eleva">
+      <div class="plan-cabeza"><h3>Suite Empresa</h3></div>
+      <p class="plan-desc">Para organizaciones con varias áreas, sedes o mayor volumen.</p>
+      <div class="plan-precio">
+        <small>Precio</small>
+        <div class="monto">A medida</div>
+        <div class="uf">Según licencias, activos y módulos · + IVA</div>
+        <div class="nota"></div>
+      </div>
+      <ul>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Brío Desk Empresa con licencias a medida</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Brío Assets, Projects e InOut</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Condiciones según contrato</li>
+      </ul>
+      <a class="btn btn--linea" href="#demo" data-interes="La suite completa">Hablar con ventas</a>
+    </article>
+  </div>
+
+  <h3 class="subtitulo-planes">O contrata Brío Desk y suma módulos</h3>
+  <div class="grilla" style="--min: 300px" aria-live="polite">
     <article class="plan eleva">
       <div class="plan-cabeza"><h3>Básico</h3></div>
       <p class="plan-desc">Para equipos pequeños que quieren ordenar sus solicitudes.</p>
       <div class="plan-precio">
         <small>Precio</small>
-        <div class="monto"><span data-mensual="$103.000" data-anual="$1.030.000">$103.000</span><span class="por" data-mensual=" /mes" data-anual=" /año"> /mes</span></div>
-        <div class="uf"><span data-mensual="2,5 UF al mes" data-anual="25 UF al año">2,5 UF al mes</span> · + IVA</div>
-        <div class="nota" data-mensual="" data-anual="Equivale a $85.833 al mes"></div>
+        <div class="monto"><span data-p="desk.basico.precio" data-mensual="$99.000" data-anual="$990.000">$99.000</span><span class="por" data-mensual=" /mes" data-anual=" /año"> /mes</span></div>
+        <div class="uf"><span data-p="desk.basico.uf" data-mensual="2,5 UF al mes" data-anual="25 UF al año">2,5 UF al mes</span> · + IVA</div>
+        <div class="nota" data-p="desk.basico.nota" data-mensual="" data-anual="Equivale a $82.500 al mes"></div>
       </div>
       <ul>
-        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>5 licencias nominales incluidas</li>
-        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Hasta 8 licencias en total</li>
-        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Mesas, catálogo y SLA</li>
-        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Activos básico: hasta 50 activos</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-p="desk.basico.nominales">5 licencias nominales incluidas</span></li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-p="desk.basico.max">Ampliable hasta 8 licencias nominales</span></li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-p="incluye.activos">Activos básico: hasta 50 bienes</span></li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-p="incluye.projects">Projects básico: 2 proyectos activos</span></li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-p="incluye.inout">InOut básico: 30 proveedores y 5 contratos con alertas</span></li>
         <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>App móvil incluida</li>
       </ul>
       <a class="btn btn--linea" href="#demo" data-interes="Brío Desk">Solicitar demo</a>
     </article>
 
-    <article class="plan plan--destacado eleva">
-      <div class="plan-cabeza"><h3>Equipo</h3><span class="insignia">Recomendado</span></div>
+    <article class="plan eleva">
+      <div class="plan-cabeza"><h3>Equipo</h3></div>
       <p class="plan-desc">Para áreas que atienden a toda la empresa y necesitan flexibilidad.</p>
       <div class="plan-precio">
         <small>Precio</small>
-        <div class="monto"><span data-mensual="$287.000" data-anual="$2.870.000">$287.000</span><span class="por" data-mensual=" /mes" data-anual=" /año"> /mes</span></div>
-        <div class="uf"><span data-mensual="7 UF al mes" data-anual="70 UF al año">7 UF al mes</span> · + IVA</div>
-        <div class="nota" data-mensual="" data-anual="Equivale a $239.167 al mes"></div>
+        <div class="monto"><span data-p="desk.equipo.precio" data-mensual="$279.000" data-anual="$2.790.000">$279.000</span><span class="por" data-mensual=" /mes" data-anual=" /año"> /mes</span></div>
+        <div class="uf"><span data-p="desk.equipo.uf" data-mensual="7 UF al mes" data-anual="70 UF al año">7 UF al mes</span> · + IVA</div>
+        <div class="nota" data-p="desk.equipo.nota" data-mensual="" data-anual="Equivale a $232.500 al mes"></div>
       </div>
       <ul>
-        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>10 licencias nominales incluidas</li>
-        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>5 licencias concurrentes incluidas</li>
-        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Mesas, catálogo y SLA</li>
-        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Activos básico: hasta 50 activos</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-p="desk.equipo.nominales">10 licencias nominales incluidas</span></li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-p="desk.equipo.concurrentes">5 licencias concurrentes incluidas</span></li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-p="incluye.activos">Activos básico: hasta 50 bienes</span></li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-p="incluye.projects">Projects básico: 2 proyectos activos</span></li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-p="incluye.inout">InOut básico: 30 proveedores y 5 contratos con alertas</span></li>
         <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>App móvil incluida</li>
       </ul>
-      <a class="btn btn--acento" href="#demo" data-interes="Brío Desk">Solicitar demo</a>
+      <a class="btn btn--linea" href="#demo" data-interes="Brío Desk">Solicitar demo</a>
     </article>
 
     <article class="plan eleva">
-      <div class="plan-cabeza"><h3>Empresas</h3></div>
+      <div class="plan-cabeza"><h3>Empresa</h3></div>
       <p class="plan-desc">Para organizaciones con varias áreas, sedes o mayor volumen.</p>
       <div class="plan-precio">
         <small>Desde</small>
-        <div class="monto"><span data-mensual="$616.000" data-anual="$6.160.000">$616.000</span><span class="por" data-mensual=" /mes" data-anual=" /año"> /mes</span></div>
-        <div class="uf"><span data-mensual="15 UF al mes" data-anual="150 UF al año">15 UF al mes</span> · + IVA</div>
-        <div class="nota" data-mensual="" data-anual="Equivale a $513.333 al mes"></div>
+        <div class="monto"><span data-p="desk.empresa.precio" data-mensual="$599.000" data-anual="$5.990.000">$599.000</span><span class="por" data-mensual=" /mes" data-anual=" /año"> /mes</span></div>
+        <div class="uf"><span data-p="desk.empresa.uf" data-mensual="15 UF al mes" data-anual="150 UF al año">15 UF al mes</span> · + IVA</div>
+        <div class="nota" data-p="desk.empresa.nota" data-mensual="" data-anual="Equivale a $499.167 al mes"></div>
       </div>
       <ul>
         <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Licencias a medida</li>
-        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Mesas, catálogo y SLA</li>
-        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Activos básico: hasta 50 activos</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-p="incluye.activos">Activos básico: hasta 50 bienes</span></li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-p="incluye.projects">Projects básico: 2 proyectos activos</span></li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-p="incluye.inout">InOut básico: 30 proveedores y 5 contratos con alertas</span></li>
         <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>App móvil incluida</li>
-        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Condiciones según contrato</li>
       </ul>
-      <a class="btn btn--linea" href="#demo" data-interes="La suite completa">Hablar con ventas</a>
+      <a class="btn btn--linea" href="#demo" data-interes="Brío Desk">Hablar con ventas</a>
     </article>
   </div>
 
@@ -635,56 +699,68 @@
     <div class="caja-precios">
       <div>
         <h3>Brío Assets</h3>
-        <p>Se suma a cualquier plan con todas las funciones de inventario, por tramos.</p>
+        <p>Inventario de cualquier tipo de bien, por tramos. Se suma a cualquier plan o se contrata solo.</p>
       </div>
       <ul class="notas">
-        <li>Todos los planes incluyen Activos básico hasta 50 activos.</li>
+        <li>Todos los planes de Desk incluyen <span data-p="incluye.activos">Activos básico: hasta 50 bienes</span>.</li>
         <li>Cada ficha del inventario cuenta como un activo, sea del tipo que sea.</li>
         <li>Los activos dados de baja no cuentan.</li>
         <li>El tope es flexible: al acercarse se avisa y el servicio no se corta.</li>
       </ul>
-      <div class="precios">
-        <div><span>Hasta 250 activos</span><span class="valor"><strong>$31.000 /mes</strong><small>0,75 UF</small></span></div>
-        <div><span>Hasta 1.000 activos</span><span class="valor"><strong>$82.000 /mes</strong><small>2 UF</small></span></div>
-        <div><span>Hasta 3.000 activos</span><span class="valor"><strong>$164.500 /mes</strong><small>4 UF</small></span></div>
-        <div><span>Hasta 10.000 activos</span><span class="valor"><strong>$493.000 /mes</strong><small>12 UF</small></span></div>
-        <div><span>Más de 10.000 activos</span><span class="valor"><strong>A convenir</strong><small>Según contrato</small></span></div>
+      <div class="precios precios--dos">
+        <div class="precios-cabeza"><span></span><span>Con Desk</span><span>Solo</span></div>
+        <div><span data-p="assets.250.hasta">Hasta 250 activos</span><span class="valor"><strong data-p="assets.250.conDesk.precio">$29.900 /mes</strong><small data-p="assets.250.conDesk.uf">0,75 UF</small></span><span class="valor"><strong data-p="assets.250.solo.precio">$39.900 /mes</strong><small data-p="assets.250.solo.uf">1 UF</small></span></div>
+        <div><span data-p="assets.1000.hasta">Hasta 1.000 activos</span><span class="valor"><strong data-p="assets.1000.conDesk.precio">$79.900 /mes</strong><small data-p="assets.1000.conDesk.uf">2 UF</small></span><span class="valor"><strong data-p="assets.1000.solo.precio">$99.000 /mes</strong><small data-p="assets.1000.solo.uf">2,5 UF</small></span></div>
+        <div><span data-p="assets.3000.hasta">Hasta 3.000 activos</span><span class="valor"><strong data-p="assets.3000.conDesk.precio">$159.900 /mes</strong><small data-p="assets.3000.conDesk.uf">4 UF</small></span><span class="valor"><strong data-p="assets.3000.solo.precio">$189.000 /mes</strong><small data-p="assets.3000.solo.uf">4,75 UF</small></span></div>
+        <div><span data-p="assets.10000.hasta">Hasta 10.000 activos</span><span class="valor"><strong data-p="assets.10000.conDesk.precio">$319.900 /mes</strong><small data-p="assets.10000.conDesk.uf">8 UF</small></span><span class="valor"><strong data-p="assets.10000.solo.precio">$359.000 /mes</strong><small data-p="assets.10000.solo.uf">9 UF</small></span></div>
+        <div><span>Más de 10.000 activos</span><span class="valor"><strong>A medida</strong></span></div>
       </div>
-      <div class="solo">
-        <p><strong>Solo Assets</strong><small>Sin plan de mesa de servicios</small></p>
-        <div class="precios">
-          <div><span>Hasta 1.000 activos</span><span class="valor"><strong>$102.500 /mes</strong><small>2,5 UF</small></span></div>
-          <div><span>Hasta 3.000 activos</span><span class="valor"><strong>$164.500 /mes</strong><small>4 UF</small></span></div>
-          <div><span>Más de 3.000 activos</span><span class="valor"><strong>A convenir</strong><small>Según contrato</small></span></div>
-        </div>
-      </div>
+      <p class="caja-nota" data-p="assets.solo.incluye">Solo Assets incluye 3 gestores de activos y el portal «Tus equipos». Gestor adicional: $9.900 /mes.</p>
     </div>
 
     <div class="columna">
       <div class="caja-precios">
         <div>
           <h3>Brío Projects</h3>
-          <p>Proyectos y tareas, conectados con tu mesa. Como complemento de un plan, cubre a los agentes con licencia de ese plan.</p>
+          <p>Proyectos y tareas conectados con tu mesa. Participantes ilimitados en todas las opciones.</p>
         </div>
         <div class="precios">
-          <div><span>Con plan Básico</span><span class="valor"><strong>$41.000 /mes</strong><small>1 UF</small></span></div>
-          <div><span>Con plan Equipo</span><span class="valor"><strong>$82.000 /mes</strong><small>2 UF</small></span></div>
-          <div><span>Con plan Empresas</span><span class="valor"><strong>A convenir</strong><small>Según contrato</small></span></div>
-          <div><span>Solo Projects · hasta 5 usuarios</span><span class="valor"><strong>$61.500 /mes</strong><small>1,5 UF</small></span></div>
-          <div><span>Solo Projects · hasta 10 usuarios</span><span class="valor"><strong>$102.500 /mes</strong><small>2,5 UF</small></span></div>
-          <div><span>Usuario adicional (sobre 10)</span><span class="valor"><strong>$8.200 /mes</strong><small>0,2 UF</small></span></div>
+        <div><span>Con Desk Básico</span><span class="valor"><strong data-p="projects.basico.precio">$39.900 /mes</strong><small data-p="projects.basico.uf">1 UF</small></span></div>
+        <div><span>Con Desk Equipo</span><span class="valor"><strong data-p="projects.equipo.precio">$79.900 /mes</strong><small data-p="projects.equipo.uf">2 UF</small></span></div>
+        <div><span>Con Desk Empresa</span><span class="valor"><strong data-p="projects.empresa">10 % a 15 % del plan Empresa</strong></span></div>
+        <div><span data-p="projects.solo5.label">Solo Projects · hasta 5 jefes de proyecto</span><span class="valor"><strong data-p="projects.solo5.precio">$59.900 /mes</strong><small data-p="projects.solo5.uf">1,5 UF</small></span></div>
+        <div><span data-p="projects.solo15.label">Solo Projects · hasta 15 jefes de proyecto</span><span class="valor"><strong data-p="projects.solo15.precio">$119.900 /mes</strong><small data-p="projects.solo15.uf">3 UF</small></span></div>
         </div>
+      </div>
+      <div class="caja-precios">
+        <div>
+          <h3>Brío InOut</h3>
+          <p>Proveedores y contratos: vigencias, renovaciones, pagos, reajustes y SLA del proveedor.</p>
+        </div>
+        <div class="precios">
+        <div><span>Con Desk Básico</span><span class="valor"><strong data-p="inout.basico.precio">$59.900 /mes</strong><small data-p="inout.basico.uf">1,5 UF</small></span></div>
+        <div><span>Con Desk Equipo</span><span class="valor"><strong data-p="inout.equipo.precio">$99.000 /mes</strong><small data-p="inout.equipo.uf">2,5 UF</small></span></div>
+        <div><span>Con Desk Empresa</span><span class="valor"><strong data-p="inout.empresa">10 % a 15 % del plan Empresa</strong></span></div>
+        <div><span data-p="inout.solo5.label">Solo InOut · hasta 5 usuarios</span><span class="valor"><strong data-p="inout.solo5.precio">$79.900 /mes</strong><small data-p="inout.solo5.uf">2 UF</small></span></div>
+        <div><span data-p="inout.solo15.label">Solo InOut · hasta 15 usuarios + 1 conector</span><span class="valor"><strong data-p="inout.solo15.precio">$139.900 /mes</strong><small data-p="inout.solo15.uf">3,5 UF</small></span></div>
+        </div>
+        <p class="caja-nota" data-p="inout.conector">Conector con tu sistema de facturación (Bsale, LibreDTE u otro): incluido desde Desk Equipo; con Desk Básico o sin Desk, $19.900 /mes por conector. Configuración: $119.000 por conector, pago único.</p>
       </div>
       <div class="licencias">
         <h3>Licencias adicionales</h3>
         <div class="precios">
-          <div><span><strong>Nominal</strong><small>Asignada a una persona</small></span><span class="valor"><strong>$20.500 /mes</strong><small>0,5 UF</small></span></div>
-          <div><span><strong>Concurrente</strong><small>Compartida, por sesión activa</small></span><span class="valor"><strong>$41.000 /mes</strong><small>1 UF</small></span></div>
+          <div><span><strong>Nominal</strong><small>Asignada a una persona</small></span><span class="valor"><strong data-p="licencia.nominal.precio">$19.900 /mes</strong><small data-p="licencia.nominal.uf">0,5 UF</small></span></div>
+          <div><span><strong>Concurrente</strong><small>Compartida, por sesión activa</small></span><span class="valor"><strong data-p="licencia.concurrente.precio">$39.900 /mes</strong><small data-p="licencia.concurrente.uf">1 UF</small></span></div>
         </div>
       </div>
     </div>
   </div>
-  <p class="nota-legal">Valores en pesos chilenos, más IVA. Equivalencia en UF referencial (UF $41.065, octubre 2026). Precios fijos por 12 meses desde la contratación, con reajuste anual según IPC. Pago anual: 12 meses de servicio pagando 10.</p>
+  <ul class="condiciones">
+    <li data-p="implementacion">Implementación desde $199.000, pago único</li>
+    <li data-p="prueba">Prueba de 30 días con todo incluido</li>
+    <li data-p="limites">Límites blandos: avisamos al 90 % y el servicio no se corta</li>
+  </ul>
+  <p class="nota-legal" data-p="nota">Valores en pesos chilenos, más IVA. La equivalencia en UF es solo referencial. Precios fijos por 12 meses desde la contratación; reajuste IPC anual, avisado con 30 días. Pago anual: 12 meses de servicio pagando 10.</p>
 </section>
 
 <!-- ============ DEMO ============ -->
@@ -714,6 +790,7 @@
           <option>Brío Desk</option>
           <option>Brío Assets</option>
           <option>Brío Projects</option>
+          <option>Brío InOut</option>
           <option>La suite completa</option>
         </select>
       </label>

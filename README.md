@@ -63,15 +63,13 @@ Cada bloque con `data-rotador` es un `tablist` con sus paneles. Avanza solo cada
 
 Los textos que cambian con la pestaña salen de atributos de la propia pestaña (`data-titulo`, `data-url`, `data-texto`…) o de contenedores `data-por-indice` con un hijo por pestaña. Todo el contenido está en el HTML: sin JavaScript se ve la primera vista de cada bloque.
 
-## Actualizar precios
+## Precios
 
-Los precios en pesos son los oficiales y van fijos en `public/index.html`, sección `#planes`. No se calculan desde la UF. Se revisan una vez al año:
+Los precios no se escriben a mano en el sitio: vienen de la lista única de BríoDesk (`lib/pricing.ts` en `briodesk-itsm`), publicada en `GET https://consola.briodesk.cl/api/pricing`.
 
-1. En cada plan, actualizar `data-mensual` y `data-anual` (precio, UF y la nota «Equivale a … al mes»). El texto visible entre etiquetas es el valor mensual, para quien no tenga JavaScript.
-2. Actualizar las tablas de Brío Assets, Brío Projects y Licencias adicionales.
-3. Actualizar la nota legal al pie (valor y mes de la UF de referencia).
-
-Pago anual = 10 × mensual. Montos de oct. 2026 calculados con UF $41.065.
+- Al servir la portada, el Worker lee esa lista (caché de una hora en Cloudflare y 5 minutos en memoria) y reemplaza cada elemento marcado con `data-p="clave"` (`src/precios.js`). La cabecera `x-precios` dice qué versión se usó.
+- Si la plataforma no responde o la lista no es válida, se ven los valores escritos en `public/index.html` (`x-precios: respaldo`). Para que ese respaldo no quede desactualizado, después de cada cambio de precios en la plataforma corre `npm run precios:respaldo` (o `npm run precios:respaldo -- pruebas/pricing.json` sin red) y sube el HTML. Las pruebas fallan si el respaldo no coincide con `pruebas/pricing.json`.
+- Para cambiar un precio: se edita `lib/pricing.ts` en la plataforma y se publica; el sitio lo muestra en menos de una hora sin desplegarse. Copia también la lista nueva a `pruebas/pricing.json` y regenera el respaldo.
 
 ## Marca
 

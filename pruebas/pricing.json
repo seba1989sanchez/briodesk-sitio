@@ -1,0 +1,261 @@
+{
+  "version": "2026-10",
+  "moneda": "CLP",
+  "ivaIncluido": false,
+  "iva": 0.19,
+  "reajuste": "IPC anual, avisado con 30 días",
+  "pagoAnual": {
+    "mesesServicio": 12,
+    "mesesPagados": 10
+  },
+  "prueba": {
+    "dias": 30,
+    "todoIncluido": true
+  },
+  "limites": {
+    "blandos": true,
+    "avisoPct": 90,
+    "bloqueo": false
+  },
+  "implementacion": {
+    "desde": true,
+    "precio": 199000,
+    "uf": 5,
+    "pagoUnico": true
+  },
+  "desk": {
+    "planes": {
+      "basico": {
+        "nombre": "Básico",
+        "precio": 99000,
+        "uf": 2.5,
+        "desde": false,
+        "aMedida": false,
+        "nominales": 5,
+        "nominalesMax": 8,
+        "concurrentes": 0
+      },
+      "equipo": {
+        "nombre": "Equipo",
+        "precio": 279000,
+        "uf": 7,
+        "desde": false,
+        "aMedida": false,
+        "nominales": 10,
+        "nominalesMax": null,
+        "concurrentes": 5
+      },
+      "empresa": {
+        "nombre": "Empresa",
+        "precio": 599000,
+        "uf": 15,
+        "desde": true,
+        "aMedida": true,
+        "nominales": null,
+        "nominalesMax": null,
+        "concurrentes": null
+      }
+    },
+    "adicionales": {
+      "nominal": {
+        "precio": 19900,
+        "uf": 0.5
+      },
+      "concurrente": {
+        "precio": 39900,
+        "uf": 1
+      }
+    },
+    "incluye": {
+      "activosBasico": {
+        "bienes": 50
+      },
+      "projectsBasico": {
+        "proyectosActivos": 2
+      },
+      "inoutBasico": {
+        "proveedores": 30,
+        "contratosConAlertas": 5
+      }
+    }
+  },
+  "assets": {
+    "tramos": [
+      {
+        "id": "250",
+        "hasta": 250,
+        "conDesk": {
+          "precio": 29900,
+          "uf": 0.75
+        },
+        "solo": {
+          "precio": 39900,
+          "uf": 1
+        }
+      },
+      {
+        "id": "1000",
+        "hasta": 1000,
+        "conDesk": {
+          "precio": 79900,
+          "uf": 2
+        },
+        "solo": {
+          "precio": 99000,
+          "uf": 2.5
+        }
+      },
+      {
+        "id": "3000",
+        "hasta": 3000,
+        "conDesk": {
+          "precio": 159900,
+          "uf": 4
+        },
+        "solo": {
+          "precio": 189000,
+          "uf": 4.75
+        }
+      },
+      {
+        "id": "10000",
+        "hasta": 10000,
+        "conDesk": {
+          "precio": 319900,
+          "uf": 8
+        },
+        "solo": {
+          "precio": 359000,
+          "uf": 9
+        }
+      }
+    ],
+    "sobreUltimoTramo": {
+      "aMedida": true
+    },
+    "solo": {
+      "gestoresIncluidos": 3,
+      "portal": "Tus equipos",
+      "gestorAdicional": {
+        "precio": 9900
+      }
+    }
+  },
+  "projects": {
+    "conDesk": {
+      "basico": {
+        "precio": 39900,
+        "uf": 1
+      },
+      "equipo": {
+        "precio": 79900,
+        "uf": 2
+      },
+      "empresa": {
+        "pctMin": 10,
+        "pctMax": 15,
+        "pctDefecto": 12.5
+      }
+    },
+    "solo": [
+      {
+        "id": "5",
+        "jefesProyecto": 5,
+        "precio": 59900,
+        "uf": 1.5
+      },
+      {
+        "id": "15",
+        "jefesProyecto": 15,
+        "precio": 119900,
+        "uf": 3
+      }
+    ],
+    "participantesIlimitados": true
+  },
+  "inout": {
+    "conDesk": {
+      "basico": {
+        "precio": 59900,
+        "uf": 1.5
+      },
+      "equipo": {
+        "precio": 99000,
+        "uf": 2.5
+      },
+      "empresa": {
+        "pctMin": 10,
+        "pctMax": 15,
+        "pctDefecto": 12.5
+      }
+    },
+    "solo": [
+      {
+        "id": "5",
+        "usuarios": 5,
+        "precio": 79900,
+        "uf": 2,
+        "conectoresIncluidos": 0
+      },
+      {
+        "id": "15",
+        "usuarios": 15,
+        "precio": 139900,
+        "uf": 3.5,
+        "conectoresIncluidos": 1
+      }
+    ],
+    "conector": {
+      "sistemas": [
+        "Bsale",
+        "LibreDTE",
+        "Otro"
+      ],
+      "incluidoDesde": "equipo",
+      "mensual": {
+        "precio": 19900
+      },
+      "configuracion": {
+        "precio": 119000,
+        "uf": 3,
+        "pagoUnico": true
+      }
+    }
+  },
+  "suites": {
+    "descuentoAproxPct": 15,
+    "planes": {
+      "basica": {
+        "nombre": "Suite Básica",
+        "precio": 189000,
+        "uf": 4.75,
+        "aMedida": false,
+        "desk": "basico",
+        "assets": "250",
+        "projects": true,
+        "inout": true
+      },
+      "equipo": {
+        "nombre": "Suite Equipo",
+        "precio": 449000,
+        "uf": 11.25,
+        "aMedida": false,
+        "desk": "equipo",
+        "assets": "1000",
+        "projects": true,
+        "inout": true
+      },
+      "empresa": {
+        "nombre": "Suite Empresa",
+        "precio": null,
+        "uf": null,
+        "aMedida": true,
+        "desk": "empresa",
+        "assets": null,
+        "projects": true,
+        "inout": true
+      }
+    },
+    "upgradeAssets": "diferencia-con-desk"
+  }
+}

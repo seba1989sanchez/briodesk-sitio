@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "wrangler dev",
     "test": "node pruebas/worker.mjs",
-    "deploy": "wrangler deploy"
+    "deploy": "wrangler deploy",
+    "precios:respaldo": "node scripts/precios-respaldo.mjs"
   },
   "devDependencies": {
     "wrangler": "4.145.0"

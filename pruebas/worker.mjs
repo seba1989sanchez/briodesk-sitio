@@ -16,10 +16,20 @@ const PORT = 8797, GPORT = 8798, BASE = `http://127.0.0.1:${PORT}`;
 /* ---------- Gmail simulado ---------- */
 const correos = [];
 let gmailFalla = false;
+// Lista de precios simulada de la plataforma (GET /api/pricing): 'ok', 'cambio', 'caida' o 'invalida'.
+const LISTA = JSON.parse(fs.readFileSync(path.join(root, 'pruebas/pricing.json'), 'utf8'));
+let precios = 'ok';
 const gmail = http.createServer((req, res) => {
   let cuerpo = '';
   req.on('data', (d) => { cuerpo += d; });
   req.on('end', () => {
+    if (req.url === '/pricing') {
+      if (precios === 'caida') { res.writeHead(503); return res.end('{}'); }
+      if (precios === 'invalida') { res.writeHead(200, {'content-type': 'application/json'}); return res.end('{"version":"x"}'); }
+      const lista = structuredClone(LISTA);
+      if (precios === 'cambio') { lista.version = '2027-01'; lista.desk.planes.equipo.precio = 299000; }
+      res.writeHead(200, {'content-type': 'application/json'}); return res.end(JSON.stringify(lista));
+    }
     if (req.url === '/token') { res.writeHead(200, {'content-type': 'application/json'}); return res.end('{"access_token":"tok"}'); }
     if (req.url === '/send') {
       if (gmailFalla) { res.writeHead(503); return res.end('{}'); }
@@ -37,7 +47,22 @@ await new Promise((r) => gmail.listen(GPORT, '127.0.0.1', r));
 
 fs.writeFileSync(path.join(tmp, '.dev.vars'), [
   'GMAIL_SENDER="avisos@briodesk.cl"', 'GMAIL_CLIENT_ID="id"', 'GMAIL_CLIENT_SECRET="secreto"', 'GMAIL_REFRESH_TOKEN="refresco"',
-  `GOOGLE_TOKEN_URL="http://127.0.0.1:${GPORT}/token"`, `GMAIL_SEND_URL="http://127.0.0.1:${GPORT}/send"`, 'SOLICITUDES_LLAVE="llave-de-prueba-para-la-bandeja-1234"', ''].join('\n'));
+  `GOOGLE_TOKEN_URL="http://127.0.0.1:${GPORT}/token"`, `GMAIL_SEND_URL="http://127.0.0.1:${GPORT}/send"`, `PRECIOS_URL="http://127.0.0.1:${GPORT}/pricing"`, 'SOLICITUDES_LLAVE="llave-de-prueba-para-la-bandeja-1234"', ''].join('\n'));
+
+// Los precios de respaldo del HTML deben ser los de la lista (npm run precios:respaldo).
+{
+  const {valoresSitio} = await import('../src/precios.js');
+  const valores = valoresSitio(LISTA), html = fs.readFileSync(path.join(root, 'public/index.html'), 'utf8');
+  const des = (t) => t.replace(/&quot;/g, '"').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&');
+  let n = 0;
+  for (const m of html.matchAll(/data-p="([^"]+)"[^>]*>([^<]*)</g)) {
+    assert.ok(valores[m[1]], `clave sin valor: ${m[1]}`);
+    assert.equal(des(m[2]), valores[m[1]].texto, `respaldo desactualizado en ${m[1]}: corre npm run precios:respaldo`);
+    n++;
+  }
+  assert.ok(n > 40, 'faltan precios marcados con data-p');
+  console.log(`  ✓ los ${n} precios de respaldo del HTML coinciden con la lista`);
+}
 
 const wr = (args) => execFileSync('npx', ['wrangler', ...args], {cwd: root, encoding: 'utf8', env: {...process.env, WRANGLER_SEND_METRICS: 'false'}});
 wr(['d1', 'migrations', 'apply', 'DB', '--local', '--env', 'prueba', '--persist-to', estado]);
@@ -196,6 +221,32 @@ try {
     const estados = [];
     for (let i = 0; i < 8; i++) estados.push((await post('/api/demo', {...demo, correo: 'x@acme.cl', sitio_web: 'trampa'}, {ipFija: '10.9.9.9'})).status);
     assert.ok(estados.includes(429), `esperaba un 429: ${estados}`);
+  });
+
+  await paso('la portada muestra los precios vigentes de la plataforma', async () => {
+    precios = 'ok';
+    let r = await get('/');
+    assert.equal(r.headers.get('x-precios'), '2026-10');
+    assert.match(r.text, /data-p="desk\.equipo\.precio" data-mensual="\$279\.000" data-anual="\$2\.790\.000">\$279\.000</);
+    assert.match(r.text, /data-p="suite\.equipo\.precio"[^>]*>\$449\.000</);
+    // Un cambio en la lista de la plataforma se ve en el sitio sin tocar el HTML.
+    precios = 'cambio';
+    r = await get('/');
+    assert.equal(r.headers.get('x-precios'), '2027-01');
+    assert.match(r.text, /data-p="desk\.equipo\.precio" data-mensual="\$299\.000" data-anual="\$2\.990\.000">\$299\.000</);
+  });
+
+  await paso('si la plataforma falla o responde algo inválido, quedan los precios del HTML', async () => {
+    for (const estado of ['caida', 'invalida']) {
+      precios = estado;
+      const r = await get('/');
+      assert.equal(r.status, 200);
+      assert.equal(r.headers.get('x-precios'), 'respaldo', estado);
+      assert.match(r.text, /data-p="desk\.equipo\.precio"[^>]*>\$279\.000</);
+    }
+    precios = 'ok';
+    // Las demás páginas no consultan precios.
+    assert.equal((await get('/ingresar')).headers.get('x-precios'), null);
   });
 
   console.log(`\n${pasadas} pruebas pasaron.`);

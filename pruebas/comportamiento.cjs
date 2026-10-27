@@ -57,10 +57,12 @@ const BASE = process.env.BASE_URL || 'http://127.0.0.1:8787';
   assert(await p.$eval('[data-menu-lateral] span.activo', e => e.textContent) === 'Tablero', 'menú lateral marca Tablero');
   // planes
   await p.click('#t-anual');
-  const txt = await p.$eval('#planes-grilla', e => e.innerText);
-  assert(txt.includes('$1.030.000') && txt.includes('/año') && txt.includes('Equivale a $85.833 al mes') && txt.includes('70 UF al año'), 'anual muestra precios anuales');
+  const txt = await p.$eval('#planes', e => e.innerText);
+  assert(txt.includes('$4.490.000') && txt.includes('112,5 UF al año') && txt.includes('Equivale a $374.167 al mes'), 'anual: Suites con precio anual');
+  assert(txt.includes('$990.000') && txt.includes('/año') && txt.includes('Equivale a $82.500 al mes') && txt.includes('70 UF al año'), 'anual: planes de Desk con precio anual');
   await p.click('#t-mensual');
-  assert((await p.$eval('#planes-grilla', e => e.innerText)).includes('$287.000'), 'vuelve a mensual');
+  const mes = await p.$eval('#planes', e => e.innerText);
+  assert(mes.includes('$449.000') && mes.includes('$279.000') && mes.includes('Ahorras $88.800 al mes'), 'vuelve a mensual');
   // formulario
   await p.fill('[name=nombre]', 'Ana'); await p.fill('[name=empresa]', 'Acme'); await p.fill('[name=correo]', 'ana@acme');
   await p.click('#form-demo button[type=submit]');
