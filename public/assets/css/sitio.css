@@ -1,13 +1,21 @@
 /* BríoDesk — estilos del sitio público.
-   Tokens según el brief de rediseño (oct. 2026). */
+   Identidad «Impulso + Territorio» (oct. 2026): Pacífico profundo, nieve de
+   glaciar y un color de territorio chileno por producto. El naranja brasa es
+   el impulso: botones, el trazo y los acentos sobre fondo oscuro. */
 
 :root {
-  --petroleo: #062f3b;
-  --petroleo-hover: #0B4A5C;
-  --petroleo-campo: #0B3E4C;
-  --papel: #F3F5F0;
+  --petroleo: #0A2630;
+  --petroleo-hover: #113744;
+  --petroleo-campo: #0F3340;
+  --papel: #EDF2F1;
   --blanco: #FFFFFF;
-  --acento: #CFF56A;
+  --acento: #F08A3E;
+  --acento-hover: #F5A262;
+  /* Un color por producto, inspirado en Chile. */
+  --cobre: #C8693A;      /* Brío Desk */
+  --pacifico: #2B7C9A;   /* Brío Assets */
+  --cordillera: #4E8A62; /* Brío Projects */
+  --arena: #D4A24C;      /* Brío InOut */
   --texto: #0B2229;
   --texto-2: #33494F;
   --texto-3: #45606A;
@@ -31,6 +39,7 @@
 
   --f-titulo: "Bricolage Grotesque", "Figtree", system-ui, sans-serif;
   --f-texto: "Figtree", "Segoe UI", system-ui, sans-serif;
+  --f-dato: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
 
   --ancho: 1240px;
   --margen: clamp(16px, 4vw, 32px);
@@ -94,7 +103,7 @@ button, input, select, textarea { font: inherit; }
 .flota { animation: bdFloat 6s ease-in-out infinite; }
 
 .eleva { transition: transform .25s ease, box-shadow .25s ease; }
-.eleva:hover { transform: translateY(-6px); box-shadow: 0 22px 44px rgba(6, 47, 59, .14); }
+.eleva:hover { transform: translateY(-6px); box-shadow: 0 22px 44px rgba(10, 38, 48, .14); }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
@@ -138,7 +147,7 @@ button, input, select, textarea { font: inherit; }
 }
 .btn:hover { transform: translateY(-2px); }
 .btn--acento { background: var(--acento); color: var(--petroleo); border-color: var(--acento); }
-.btn--acento:hover { color: var(--petroleo); background: #DBFA88; }
+.btn--acento:hover { color: var(--petroleo); background: var(--acento-hover); }
 .btn--fantasma { color: var(--blanco); border-color: rgba(230, 238, 236, .4); background: transparent; }
 .btn--fantasma:hover { color: var(--blanco); border-color: var(--sobre-oscuro); }
 .btn--oscuro { background: var(--petroleo); color: var(--blanco); border-color: var(--petroleo); }
@@ -267,7 +276,7 @@ button, input, select, textarea { font: inherit; }
 }
 .fila b { display: block; font-weight: 600; font-size: 14px; }
 .fila small { display: block; font-size: 12px; color: var(--texto-3); }
-.fila--nueva { border-color: var(--acento); background: #FBFFF2; }
+.fila--nueva { border-color: var(--acento); background: #FFF6EF; }
 .fila--nueva em { display: block; font-style: normal; font-size: 11px; font-weight: 800; letter-spacing: .05em; color: var(--verde-agua); }
 
 .kanban { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
@@ -688,3 +697,70 @@ button, input, select, textarea { font: inherit; }
   .precios--dos > div > span:first-child { grid-column: 1 / -1; }
   .precios-cabeza span:first-child { display: none; }
 }
+
+
+/* ==========================================================
+   Impulso + Territorio
+   ========================================================== */
+
+/* Portada: curvas de nivel animadas detrás del contenido. */
+.hero { position: relative; overflow: hidden; isolation: isolate; }
+.hero > .wrap, .hero > .sellos { position: relative; z-index: 1; }
+.topo { position: absolute; inset: 0; width: 100%; height: 100%; display: block; z-index: 0; pointer-events: none; }
+.palabra span { background: linear-gradient(95deg, var(--cobre), var(--acento) 55%, var(--arena)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.sellos-hero li { font-family: var(--f-dato); font-weight: 500; letter-spacing: .08em; font-size: 12px; }
+.sellos li .check { background: rgba(240, 138, 62, .12); }
+
+/* Cada pestaña del demo toma el color de su producto. */
+.selector--oscuro #t-desk[aria-selected="true"] { background: var(--cobre); border-color: var(--cobre); color: var(--blanco); }
+.selector--oscuro #t-assets[aria-selected="true"] { background: var(--pacifico); border-color: var(--pacifico); color: var(--blanco); }
+.selector--oscuro #t-projects[aria-selected="true"] { background: var(--cordillera); border-color: var(--cordillera); color: var(--blanco); }
+.progreso > span { background: linear-gradient(90deg, var(--cobre), var(--acento)); }
+
+/* Trazo de impulso que baja con el scroll (pantallas anchas). */
+.riel { position: fixed; left: max(14px, env(safe-area-inset-left, 0px)); top: 0; bottom: 0; width: 2px; z-index: 40; pointer-events: none; background: rgba(10, 38, 48, .08); }
+.riel span { position: absolute; left: 0; top: 0; width: 2px; height: 0; background: linear-gradient(180deg, var(--cobre), var(--acento)); box-shadow: 0 0 10px var(--acento); }
+.riel span::after { content: ""; position: absolute; left: -4px; bottom: -5px; width: 10px; height: 10px; border-radius: 50%; background: var(--acento); box-shadow: 0 0 14px 3px rgba(240, 138, 62, .7); }
+@media (max-width: 1360px) { .riel { display: none; } }
+
+.antetitulo { color: var(--cobre); font-family: var(--f-dato); font-weight: 500; font-size: 13px; letter-spacing: .14em; display: inline-flex; align-items: center; gap: 10px; }
+.antetitulo::before { content: ""; width: 26px; height: 2px; background: linear-gradient(90deg, var(--cobre), var(--acento)); }
+.oscuro .antetitulo { color: var(--arena); }
+
+/* Cuatro territorios: un paisaje por producto. */
+.territorios { display: grid; gap: 18px; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.terr { --c: var(--cobre); position: relative; background: var(--blanco); border-radius: 22px; overflow: hidden; display: flex; flex-direction: column;
+  transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)); transition: transform .25s ease, box-shadow .25s ease; }
+.terr:hover { box-shadow: 0 18px 40px -20px var(--c); }
+.terr--assets { --c: var(--pacifico); } .terr--projects { --c: var(--cordillera); } .terr--inout { --c: var(--arena); }
+.terr .paisaje { height: 132px; }
+.terr .paisaje svg { display: block; width: 100%; height: 100%; }
+.terr .cuerpo { padding: 22px 22px 26px; display: flex; flex-direction: column; gap: 10px; }
+.terr .lugar { font: 500 11px/1 var(--f-dato); letter-spacing: .12em; text-transform: uppercase; color: var(--c); }
+.terr h3 { margin: 0; font-family: var(--f-titulo); font-size: 26px; font-weight: 800; letter-spacing: -.02em; }
+.terr p { margin: 0; font-size: 15px; line-height: 1.6; color: var(--texto-2); }
+.ola { animation: ola 9s linear infinite; } .ola--2 { animation-duration: 13s; animation-direction: reverse; } .ola--3 { animation-duration: 17s; }
+@keyframes ola { to { transform: translateX(-150px); } }
+.camion { animation: camion 11s ease-in-out infinite; }
+@keyframes camion { 0% { transform: translateX(-40px); } 45%, 55% { transform: translateX(300px); } 100% { transform: translateX(-40px); } }
+.brillo-mina { animation: brilloMina 5s ease-in-out infinite; }
+@keyframes brilloMina { 0%, 100% { opacity: .15; } 50% { opacity: .5; } }
+.hito { animation: hito 4.5s ease-in-out infinite; } .hito--2 { animation-delay: 1.5s; } .hito--3 { animation-delay: 3s; }
+@keyframes hito { 0%, 100% { opacity: .45; } 30% { opacity: 1; } }
+@media (max-width: 1040px) { .territorios { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .territorios { grid-template-columns: minmax(0, 1fr); } }
+
+/* Banda de cifras: se completan cada vez que vuelven a la pantalla. */
+.cifras { padding-block: 72px; }
+.cifras ul { list-style: none; margin: 0 auto; padding-block: 0; display: grid; gap: 24px; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.cifras li { border-left: 2px solid var(--linea-oscura); padding-left: 18px; }
+.cifras .n { display: block; font: 800 clamp(44px, 5.5vw, 72px)/1 var(--f-titulo); color: var(--blanco); font-variant-numeric: tabular-nums; letter-spacing: -.04em; }
+.cifras .n small { font-size: .45em; color: var(--acento); margin-left: 2px; }
+.cifras p { margin: 10px 0 0; font-size: 15px; color: var(--sobre-oscuro-2); max-width: 24ch; }
+@media (max-width: 800px) { .cifras ul { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 36px; } }
+
+/* Precios que destellan al cambiar Mensual / Anual. */
+.destello { animation: destello .6s ease; }
+@keyframes destello { 0% { color: var(--acento); } }
+
+@media (prefers-reduced-motion: reduce) { .terr { transform: none !important; } }
