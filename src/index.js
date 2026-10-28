@@ -168,12 +168,12 @@ export function correoAviso(s) {
     ? `Solicitud de demo: ${s.empresa} (${s.interes})`
     : `Solicitud de dirección: ${s.subdominio}.${ZONA} (${s.empresa})`;
   const titulo = s.tipo === 'demo' ? 'Nueva solicitud de demostración' : 'Nueva solicitud de dirección';
-  const html = `<div style="font-family:Arial,sans-serif;color:#0B2229;max-width:560px">
-<h2 style="color:#062f3b;margin:0 0 12px">${escapar(titulo)}</h2>
-<p style="margin:0 0 16px;color:#45606A">Llegó desde briodesk.cl. Puedes responder este correo para escribirle directamente.</p>
+  const html = `<div style="font-family:Arial,sans-serif;color:#142019;max-width:560px">
+<h2 style="color:#13231A;margin:0 0 12px">${escapar(titulo)}</h2>
+<p style="margin:0 0 16px;color:#51604F">Llegó desde briodesk.cl. Puedes responder este correo para escribirle directamente.</p>
 <table style="border-collapse:collapse;width:100%">${filas.map(([k, v]) =>
-    `<tr><td style="padding:8px 12px 8px 0;color:#45606A;border-bottom:1px solid #E1E7E4;white-space:nowrap">${escapar(k)}</td><td style="padding:8px 0;border-bottom:1px solid #E1E7E4;font-weight:bold">${escapar(v)}</td></tr>`).join('')}</table>
-<p style="margin:16px 0 0;font-size:12px;color:#45606A">Solicitud n.º ${escapar(s.id)}</p></div>`;
+    `<tr><td style="padding:8px 12px 8px 0;color:#51604F;border-bottom:1px solid #E0E7DC;white-space:nowrap">${escapar(k)}</td><td style="padding:8px 0;border-bottom:1px solid #E0E7DC;font-weight:bold">${escapar(v)}</td></tr>`).join('')}</table>
+<p style="margin:16px 0 0;font-size:12px;color:#51604F">Solicitud n.º ${escapar(s.id)}</p></div>`;
   return {asunto, html};
 }
 

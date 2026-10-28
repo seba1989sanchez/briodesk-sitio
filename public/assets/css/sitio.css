@@ -1,13 +1,13 @@
 /* BríoDesk — estilos del sitio público.
-   Identidad «Impulso + Territorio» (oct. 2026): Pacífico profundo, nieve de
-   glaciar y un color de territorio chileno por producto. El naranja brasa es
+   Identidad «Impulso + Territorio» (oct. 2026): base Bosque valdiviano (verde
+   casi negro de la selva fría del sur), luz de bosque y un color de territorio chileno por producto. El naranja brasa es
    el impulso: botones, el trazo y los acentos sobre fondo oscuro. */
 
 :root {
-  --petroleo: #0A2630;
-  --petroleo-hover: #113744;
-  --petroleo-campo: #0F3340;
-  --papel: #EDF2F1;
+  --petroleo: #13231A;
+  --petroleo-hover: #1D3326;
+  --petroleo-campo: #182C21;
+  --papel: #EEF2EC;
   --blanco: #FFFFFF;
   --acento: #F08A3E;
   --acento-hover: #F5A262;
@@ -16,26 +16,26 @@
   --pacifico: #2B7C9A;   /* Brío Assets */
   --cordillera: #4E8A62; /* Brío Projects */
   --arena: #D4A24C;      /* Brío InOut */
-  --texto: #0B2229;
-  --texto-2: #33494F;
-  --texto-3: #45606A;
-  --sobre-oscuro: #E6EEEC;
-  --sobre-oscuro-2: #C9D8D5;
-  --menu-inactivo: #B9CBC7;
-  --borde: #D9E0DD;
-  --borde-2: #E1E7E4;
-  --borde-3: #C9D3D0;
-  --linea-oscura: rgba(230, 238, 236, 0.14);
-  --verde-agua: #2E6B73;
-  --chip: #E7EFEC;
+  --texto: #142019;
+  --texto-2: #3E4D40;
+  --texto-3: #51604F;
+  --sobre-oscuro: #E6EDE2;
+  --sobre-oscuro-2: #C5D3C0;
+  --menu-inactivo: #B4C4AF;
+  --borde: #D8E0D3;
+  --borde-2: #E0E7DC;
+  --borde-3: #C8D2C3;
+  --linea-oscura: rgba(230, 237, 226, 0.14);
+  --verde-agua: #4A6B52;
+  --chip: #E6EDE3;
   --ok-fondo: #E3F1E4;
   --ok: #1F5A27;
   --ok-punto: #3A9A45;
   --alerta-fondo: #FFE7D6;
   --alerta: #8A3B00;
-  --neutro-fondo: #EEF2EF;
-  --neutro: #33494F;
-  --apagado: #9AAAA6;
+  --neutro-fondo: #EDF1EA;
+  --neutro: #3E4D40;
+  --apagado: #9DAA99;
 
   --f-titulo: "Bricolage Grotesque", "Figtree", system-ui, sans-serif;
   --f-texto: "Figtree", "Segoe UI", system-ui, sans-serif;
@@ -148,7 +148,7 @@ button, input, select, textarea { font: inherit; }
 .btn:hover { transform: translateY(-2px); }
 .btn--acento { background: var(--acento); color: var(--petroleo); border-color: var(--acento); }
 .btn--acento:hover { color: var(--petroleo); background: var(--acento-hover); }
-.btn--fantasma { color: var(--blanco); border-color: rgba(230, 238, 236, .4); background: transparent; }
+.btn--fantasma { color: var(--blanco); border-color: rgba(230, 237, 226, .4); background: transparent; }
 .btn--fantasma:hover { color: var(--blanco); border-color: var(--sobre-oscuro); }
 .btn--oscuro { background: var(--petroleo); color: var(--blanco); border-color: var(--petroleo); }
 .btn--oscuro:hover { color: var(--blanco); background: var(--petroleo-hover); }
@@ -181,7 +181,7 @@ button, input, select, textarea { font: inherit; }
 .selector [role="tab"][aria-selected="true"] { background: var(--petroleo); color: var(--blanco); border-color: var(--petroleo); }
 
 /* variante sobre fondo petróleo */
-.selector--oscuro [role="tab"] { background: transparent; color: var(--sobre-oscuro); border-color: rgba(230, 238, 236, .32); }
+.selector--oscuro [role="tab"] { background: transparent; color: var(--sobre-oscuro); border-color: rgba(230, 237, 226, .32); }
 .selector--oscuro [role="tab"][aria-selected="true"] { background: var(--acento); color: var(--petroleo); border-color: var(--acento); }
 
 /* botones de dos líneas (hero y plataforma) */
@@ -204,7 +204,7 @@ button, input, select, textarea { font: inherit; }
 .nav-menu a:not(.btn):hover { color: var(--blanco); text-decoration: underline; text-underline-offset: 6px; }
 .nav-menu .btn { padding: 12px 20px; font-size: 15px; }
 .nav-toggle {
-  display: none; cursor: pointer; background: transparent; border: 1px solid rgba(230, 238, 236, .32);
+  display: none; cursor: pointer; background: transparent; border: 1px solid rgba(230, 237, 226, .32);
   color: var(--blanco); border-radius: 12px; width: 48px; height: 48px; padding: 0;
   align-items: center; justify-content: center;
 }
@@ -235,7 +235,7 @@ button, input, select, textarea { font: inherit; }
 .sellos-hero { display: flex; flex-wrap: wrap; gap: 10px; margin: 0; padding: 0; list-style: none; }
 .sellos-hero li {
   font-size: 13px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase;
-  padding: 8px 14px; border: 1px solid rgba(230, 238, 236, .3); border-radius: 999px;
+  padding: 8px 14px; border: 1px solid rgba(230, 237, 226, .3); border-radius: 999px;
 }
 .hero h1 {
   margin: 0; font-family: var(--f-titulo); font-weight: 800;
@@ -248,7 +248,7 @@ button, input, select, textarea { font: inherit; }
 .acciones { display: flex; flex-wrap: wrap; gap: 14px; }
 
 .hero-demo { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
-.progreso { height: 3px; background: rgba(230, 238, 236, .15); border-radius: 3px; overflow: hidden; }
+.progreso { height: 3px; background: rgba(230, 237, 226, .15); border-radius: 3px; overflow: hidden; }
 .progreso > span { display: block; height: 3px; width: 0; background: var(--acento); transition: width .25s linear; }
 
 .mock {
@@ -295,7 +295,7 @@ button, input, select, textarea { font: inherit; }
 }
 .sellos li { display: flex; align-items: center; gap: 12px; font-size: 15px; font-weight: 600; color: var(--sobre-oscuro); }
 .check {
-  width: 36px; height: 36px; border-radius: 10px; background: rgba(230, 238, 236, .08);
+  width: 36px; height: 36px; border-radius: 10px; background: rgba(230, 237, 226, .08);
   display: flex; align-items: center; justify-content: center; flex: none;
 }
 
@@ -362,7 +362,7 @@ button, input, select, textarea { font: inherit; }
 .ficha-chip {
   position: absolute; top: -22px; left: 0; transform: translateX(-50%);
   background: var(--acento); color: var(--petroleo); font-size: 12px; font-weight: 800;
-  padding: 5px 10px; border-radius: 8px; white-space: nowrap; box-shadow: 0 6px 14px rgba(6, 47, 59, .18);
+  padding: 5px 10px; border-radius: 8px; white-space: nowrap; box-shadow: 0 6px 14px rgba(19, 35, 26, .18);
   transition: left .7s var(--curva);
 }
 
@@ -400,7 +400,7 @@ button, input, select, textarea { font: inherit; }
 
 #plataforma { padding-top: 24px; }
 #plataforma .selector { margin-bottom: 20px; }
-.navegador { background: var(--blanco); border-radius: 20px; box-shadow: 0 30px 70px rgba(6, 47, 59, .16); overflow: hidden; border: 1px solid var(--borde); }
+.navegador { background: var(--blanco); border-radius: 20px; box-shadow: 0 30px 70px rgba(19, 35, 26, .16); overflow: hidden; border: 1px solid var(--borde); }
 .navegador-barra { display: flex; align-items: center; gap: 14px; padding: 12px 16px; background: #E9EEEB; border-bottom: 1px solid var(--borde); }
 .semaforo { display: flex; gap: 6px; }
 .semaforo i { width: 11px; height: 11px; border-radius: 50%; }
@@ -412,7 +412,7 @@ button, input, select, textarea { font: inherit; }
 .app-menu { flex: 1 1 190px; max-width: 100%; background: var(--petroleo); color: var(--sobre-oscuro); padding: 20px 14px; display: flex; flex-direction: column; gap: 6px; }
 .app-menu img { height: 28px; width: auto; align-self: flex-start; margin: 0 8px 14px; }
 .app-menu span { padding: 10px 12px; border-radius: 10px; font-size: 14px; font-weight: 600; color: var(--menu-inactivo); }
-.app-menu span.activo { background: rgba(230, 238, 236, .14); color: var(--blanco); }
+.app-menu span.activo { background: rgba(230, 237, 226, .14); color: var(--blanco); }
 .app-contenido { flex: 999 1 560px; min-width: 0; padding: clamp(16px, 3vw, 28px); background: #FAFBF9; }
 .app-contenido [role="tabpanel"] { display: flex; flex-direction: column; gap: 18px; }
 .pantalla-titulo { font-family: var(--f-titulo); font-weight: 800; font-size: clamp(22px, 2.6vw, 28px); letter-spacing: -.02em; line-height: 1.15; }
@@ -541,7 +541,7 @@ button, input, select, textarea { font: inherit; }
   display: flex; flex-direction: column; gap: 18px;
   --apagado-plan: var(--texto-3); --linea-plan: var(--borde-2); --check: var(--verde-agua);
 }
-.plan--destacado { background: var(--petroleo); color: var(--blanco); border-color: var(--petroleo); --apagado-plan: var(--sobre-oscuro-2); --linea-plan: rgba(230, 238, 236, .16); --check: var(--acento); }
+.plan--destacado { background: var(--petroleo); color: var(--blanco); border-color: var(--petroleo); --apagado-plan: var(--sobre-oscuro-2); --linea-plan: rgba(230, 237, 226, .16); --check: var(--acento); }
 .plan-cabeza { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
 .plan h3 { margin: 0; font-family: var(--f-titulo); font-size: 28px; font-weight: 800; letter-spacing: -.02em; }
 .insignia { font-size: 12px; font-weight: 800; padding: 5px 10px; border-radius: 999px; background: var(--acento); color: var(--petroleo); }
@@ -615,7 +615,7 @@ button, input, select, textarea { font: inherit; }
 .formulario .ancho { grid-column: 1 / -1; }
 .formulario input, .formulario select {
   font-size: 16px; min-height: 48px; padding: 0 14px; border-radius: 12px;
-  border: 1px solid rgba(230, 238, 236, .35); background: rgba(255, 255, 255, .06); color: var(--blanco);
+  border: 1px solid rgba(230, 237, 226, .35); background: rgba(255, 255, 255, .06); color: var(--blanco);
 }
 .formulario select { background: var(--petroleo-campo); }
 .formulario input:focus-visible, .formulario select:focus-visible { outline: 3px solid var(--acento); outline-offset: 1px; }

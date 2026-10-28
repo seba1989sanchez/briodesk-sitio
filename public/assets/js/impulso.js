@@ -41,7 +41,7 @@
       for (j = 0; j < filas; j++) for (i = 0; i < cols; i++) v[j * cols + i] = campo(i * paso * esc, j * paso * esc, t);
       niveles.forEach(function (nv, k) {
         var fuerte = k === 4;
-        cx.strokeStyle = fuerte ? "rgba(240,138,62,.38)" : "rgba(143,169,172," + (0.10 + (k % 2) * 0.05) + ")";
+        cx.strokeStyle = fuerte ? "rgba(240,138,62,.38)" : "rgba(160,180,150," + (0.10 + (k % 2) * 0.05) + ")";
         cx.lineWidth = fuerte ? 1.4 : 1;
         cx.beginPath();
         var seg = function (p, q) { cx.moveTo(p[0], p[1]); cx.lineTo(q[0], q[1]); };
