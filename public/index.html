@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>BríoDesk · Mesa de servicios, activos y proyectos hecha en Chile</title>
 <meta name="description" content="BríoDesk es software chileno para ordenar tickets, activos y proyectos en una sola plataforma. Precios en pesos chilenos y app móvil incluida.">
-<meta name="theme-color" content="#062f3b">
+<meta name="theme-color" content="#0A2630">
 <link rel="canonical" href="https://briodesk.cl/">
 
 <meta property="og:type" content="website">
@@ -25,16 +25,18 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&amp;family=Figtree:wght@400;500;600;700&amp;display=swap">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&amp;family=Figtree:wght@400;500;600;700&amp;display=swap">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&amp;family=Figtree:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@500&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&amp;family=Figtree:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@500&amp;display=swap">
 <link rel="stylesheet" href="/assets/css/sitio.css">
 <script src="/assets/js/sitio.js" defer></script>
+<script src="/assets/js/impulso.js" defer></script>
 </head>
 <body>
 <a class="saltar" href="#contenido">Saltar al contenido</a>
 
 <!-- ============ HERO ============ -->
 <header class="hero oscuro">
+  <canvas class="topo" aria-hidden="true"></canvas>
   <div class="wrap">
     <nav class="nav" aria-label="Principal">
       <a class="nav-logo" href="/" aria-label="BríoDesk, inicio"><img src="/assets/img/briodesk-logo-claro.png" alt="BríoDesk" width="192" height="40"></a>
@@ -146,13 +148,15 @@
 
   <div class="sellos">
     <ul class="wrap">
-      <li><span class="check"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#CFF56A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg></span>Hecho y soportado en Chile</li>
-      <li><span class="check"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#CFF56A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg></span>Precios en pesos chilenos</li>
-      <li><span class="check"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#CFF56A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg></span>App móvil con tickets, activos y proyectos</li>
-      <li><span class="check"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#CFF56A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg></span>Se adapta al lenguaje de cada área</li>
+      <li><span class="check"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F08A3E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg></span>Hecho y soportado en Chile</li>
+      <li><span class="check"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F08A3E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg></span>Precios en pesos chilenos</li>
+      <li><span class="check"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F08A3E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg></span>App móvil con tickets, activos y proyectos</li>
+      <li><span class="check"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F08A3E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg></span>Se adapta al lenguaje de cada área</li>
     </ul>
   </div>
 </header>
+
+<div class="riel" aria-hidden="true"><span></span></div>
 
 <main id="contenido">
 
@@ -172,7 +176,7 @@
       <p>Sin cobros en dólares ni sorpresas por tipo de cambio. Un costo mensual predecible que tu área de finanzas puede planificar.</p>
     </article>
     <article class="tarjeta tarjeta--oscura eleva">
-      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#CFF56A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg>
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#F08A3E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg>
       <h3>Todo, también en el teléfono</h3>
       <p>La app móvil no se queda en crear tickets: registra y monitorea activos y avanza las tareas de tus proyectos desde terreno.</p>
     </article>
@@ -540,24 +544,64 @@
   <p class="antetitulo">La suite Brío</p>
   <h2 class="titulo-2" id="suite-titulo">Contrata lo que necesitas. Suma el resto cuando crezcas.</h2>
   <p class="bajada bajada--g">Cuatro productos que funcionan solos o conectados entre sí.</p>
-  <div class="grilla" style="--min: 300px">
-    <article class="tarjeta tarjeta--producto eleva">
-      <h3>Brío Desk</h3>
-      <p>Mesa de servicios con catálogo, mesas jerárquicas, SLA con horario hábil y festivos, portal de solicitantes y reportes.</p>
+  <div class="territorios">
+    <article class="terr terr--desk">
+      <div class="paisaje" aria-hidden="true"><svg viewBox="0 0 300 132" preserveAspectRatio="xMidYMid slice">
+        <rect width="300" height="132" fill="#B85C30"/>
+        <g fill="none" stroke-width="9"><ellipse cx="150" cy="118" rx="210" ry="96" stroke="#D27A48"/><ellipse cx="150" cy="118" rx="178" ry="80" stroke="#C46A3B"/><ellipse cx="150" cy="118" rx="146" ry="64" stroke="#D27A48"/><ellipse cx="150" cy="118" rx="114" ry="49" stroke="#B85C30"/><ellipse cx="150" cy="118" rx="84" ry="35" stroke="#A9532A"/><ellipse cx="150" cy="118" rx="56" ry="22" stroke="#984A25"/></g>
+        <g fill="none" stroke="#F3C29E" stroke-width="1" opacity=".55"><ellipse cx="150" cy="118" rx="214" ry="98"/><ellipse cx="150" cy="118" rx="182" ry="82"/><ellipse cx="150" cy="118" rx="150" ry="66"/><ellipse cx="150" cy="118" rx="118" ry="51"/><ellipse cx="150" cy="118" rx="88" ry="37"/><ellipse cx="150" cy="118" rx="60" ry="24"/></g>
+        <ellipse cx="150" cy="118" rx="30" ry="11" fill="#7E3D1F"/><ellipse class="brillo-mina" cx="96" cy="72" rx="40" ry="8" fill="#FFD9BA"/>
+      </svg></div>
+      <div class="cuerpo"><span class="lugar">Cobre · Desk</span><h3>Brío Desk</h3>
+      <p>Mesa de servicios con catálogo, mesas jerárquicas, SLA con horario hábil y festivos, portal de solicitantes y reportes.</p></div>
     </article>
-    <article class="tarjeta tarjeta--producto eleva">
-      <h3>Brío Assets</h3>
-      <p>Inventario de todo lo que necesitas controlar: computadores, teléfonos, mobiliario, electrodomésticos. Dónde está, a quién está asignado y en qué estado.</p>
+    <article class="terr terr--assets">
+      <div class="paisaje" aria-hidden="true"><svg viewBox="0 0 300 132" preserveAspectRatio="xMidYMid slice">
+        <rect width="300" height="132" fill="#9CCAD6"/><circle cx="240" cy="34" r="16" fill="#E9F4F2" opacity=".8"/>
+        <g class="ola ola--3"><path d="M0 70 Q37.5 58 75 70 T150 70 T225 70 T300 70 T375 70 T450 70 V132 H0Z" fill="#5FA6BE"/></g>
+        <g class="ola ola--2"><path d="M0 86 Q37.5 74 75 86 T150 86 T225 86 T300 86 T375 86 T450 86 V132 H0Z" fill="#3F8EAA"/></g>
+        <g class="ola"><path d="M0 104 Q37.5 92 75 104 T150 104 T225 104 T300 104 T375 104 T450 104 V132 H0Z" fill="#2B7C9A"/><path d="M0 104 Q37.5 92 75 104 T150 104 T225 104 T300 104 T375 104 T450 104" fill="none" stroke="#E9F4F2" stroke-width="1.5" opacity=".7"/></g>
+      </svg></div>
+      <div class="cuerpo"><span class="lugar">Pacífico · Assets</span><h3>Brío Assets</h3>
+      <p>Inventario de todo lo que necesitas controlar: computadores, teléfonos, mobiliario, electrodomésticos. Dónde está, a quién está asignado y en qué estado.</p></div>
     </article>
-    <article class="tarjeta tarjeta--producto eleva">
-      <h3>Brío Projects</h3>
-      <p>Proyectos y tareas del área: aperturas, migraciones, renovaciones. Cada tarea con responsable y avance visible.</p>
+    <article class="terr terr--projects">
+      <div class="paisaje" aria-hidden="true"><svg viewBox="0 0 300 132" preserveAspectRatio="xMidYMid slice">
+        <rect width="300" height="132" fill="#BFD8C6"/>
+        <path d="M0 96 L46 46 L78 70 L128 18 L170 62 L206 34 L252 74 L300 40 V132 H0Z" fill="#7FA98B"/>
+        <path d="M128 18 L114 33 L124 30 L132 36 L142 29Z M206 34 L196 45 L205 43 L213 47Z" fill="#F4F8F6"/>
+        <path d="M0 112 L58 72 L104 96 L150 62 L196 92 L244 66 L300 94 V132 H0Z" fill="#4E8A62"/>
+        <path d="M0 132 L70 104 L130 118 L196 100 L300 116 V132Z" fill="#3A6E4C"/>
+        <path d="M22 124 L84 104 L132 86 L170 70 L206 50" fill="none" stroke="#FFF7E6" stroke-width="2" stroke-dasharray="4 5" stroke-linecap="round"/>
+        <g fill="#F08A3E"><circle class="hito" cx="84" cy="104" r="4.5"/><circle class="hito hito--2" cx="132" cy="86" r="4.5"/><circle class="hito hito--3" cx="206" cy="50" r="4.5"/></g>
+        <path d="M206 50 V36 L218 40 L206 44" fill="#F08A3E"/>
+      </svg></div>
+      <div class="cuerpo"><span class="lugar">Cordillera · Projects</span><h3>Brío Projects</h3>
+      <p>Proyectos y tareas del área: aperturas, migraciones, renovaciones. Cada tarea con responsable y avance visible.</p></div>
     </article>
-    <article class="tarjeta tarjeta--producto eleva">
-      <h3>Brío InOut</h3>
-      <p>Proveedores y contratos en un solo lugar: vigencias, renovaciones con aviso, pagos, reajustes IPC y conexión con tu sistema de facturación.</p>
+    <article class="terr terr--inout">
+      <div class="paisaje" aria-hidden="true"><svg viewBox="0 0 300 132" preserveAspectRatio="xMidYMid slice">
+        <rect width="300" height="132" fill="#F1D9A6"/><circle cx="62" cy="40" r="18" fill="#FFF1CF"/><circle cx="62" cy="40" r="26" fill="#FFF1CF" opacity=".35"/>
+        <path d="M0 84 C60 60 110 64 160 80 S250 60 300 72 V132 H0Z" fill="#E3B866"/>
+        <path d="M0 100 C70 84 130 98 190 90 S270 84 300 92 V132 H0Z" fill="#D4A24C"/>
+        <path d="M0 116 H300 V132 H0Z" fill="#B98A3A"/><path d="M0 116 H300" stroke="#FFF1CF" stroke-width="1.5" stroke-dasharray="10 8"/>
+        <g class="camion"><g transform="translate(0 100)"><rect x="0" y="0" width="26" height="13" rx="2" fill="#0A2630"/><rect x="26" y="4" width="11" height="9" rx="2" fill="#113744"/><rect x="29" y="6" width="5" height="4" rx="1" fill="#9CCAD6"/><circle cx="7" cy="15" r="3" fill="#0A2630"/><circle cx="30" cy="15" r="3" fill="#0A2630"/></g></g>
+      </svg></div>
+      <div class="cuerpo"><span class="lugar">Atacama · InOut</span><h3>Brío InOut</h3>
+      <p>Proveedores y contratos en un solo lugar: vigencias, renovaciones con aviso, pagos, reajustes IPC y conexión con tu sistema de facturación.</p></div>
     </article>
   </div>
+</section>
+
+<!-- ============ CIFRAS ============
+     Salen de la lista de precios (data-p); se completan cada vez que vuelven a la pantalla. -->
+<section class="cifras oscuro" aria-label="Condiciones de BríoDesk">
+  <ul class="wrap">
+    <li><span class="n"><span data-cifra data-p="cifra.prueba">30</span></span><p>días de prueba con todo incluido</p></li>
+    <li><span class="n"><span data-cifra>100</span><small>%</small></span><p>de las funciones en todos los planes</p></li>
+    <li><span class="n"><span data-cifra data-p="cifra.aviso">90</span><small>%</small></span><p>de uso y te avisamos. El servicio no se corta</p></li>
+    <li><span class="n"><span data-cifra data-p="cifra.mesesGratis">2</span></span><p>meses sin costo al pagar el año</p></li>
+  </ul>
 </section>
 
 <!-- ============ PLANES ============

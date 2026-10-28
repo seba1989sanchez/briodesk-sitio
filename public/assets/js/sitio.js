@@ -206,6 +206,8 @@
       var periodo = tabs[i].getAttribute("data-periodo");
       $$("[data-mensual]", seccion).forEach(function (el) {
         el.textContent = el.getAttribute("data-" + periodo);
+        // Destello breve del monto que cambió.
+        el.classList.remove("destello"); void el.offsetWidth; el.classList.add("destello");
       });
     });
   });

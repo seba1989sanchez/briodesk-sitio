@@ -95,6 +95,10 @@ export function valoresSitio(p) {
   texto('implementacion', `Implementación desde ${clp(num(p.implementacion?.precio, 'implementacion.precio'))}, pago único`);
   texto('prueba', `Prueba de ${num(p.prueba?.dias, 'prueba.dias')} días con todo incluido`);
   texto('limites', `Límites blandos: avisamos al ${num(p.limites?.avisoPct, 'limites.avisoPct')} % y el servicio no se corta`);
+  // Cifras de la banda oscura (solo el número).
+  texto('cifra.prueba', String(num(p.prueba?.dias, 'prueba.dias')));
+  texto('cifra.aviso', String(num(p.limites?.avisoPct, 'limites.avisoPct')));
+  texto('cifra.mesesGratis', String(num(p.pagoAnual.mesesServicio, 'pagoAnual.mesesServicio') - meses));
   texto('nota', `Valores en pesos chilenos, más IVA. La equivalencia en UF es solo referencial. Precios fijos por 12 meses desde la contratación; reajuste ${p.reajuste}. Pago anual: ${num(p.pagoAnual.mesesServicio, 'pagoAnual.mesesServicio')} meses de servicio pagando ${meses}.`);
   return v;
 }
