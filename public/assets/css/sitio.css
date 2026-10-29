@@ -284,7 +284,7 @@ button, input, select, textarea { font: inherit; }
 .kanban h4 { margin: 0; font-size: 12px; font-weight: 700; color: var(--texto-3); }
 .kanban p { margin: 0; background: var(--blanco); border-radius: 10px; padding: 10px; font-size: 13px; font-weight: 600; }
 .kanban p.hecho { color: var(--texto-3); text-decoration: line-through; }
-.barra { height: 6px; background: var(--borde-2); border-radius: 6px; margin-top: 8px; overflow: hidden; }
+.barra { display: block; height: 6px; background: var(--borde-2); border-radius: 6px; margin-top: 8px; overflow: hidden; }
 .barra > span { display: block; height: 100%; background: var(--petroleo); border-radius: 6px; transition: width 1s linear; }
 
 /* Sellos fijos */
@@ -715,6 +715,7 @@ button, input, select, textarea { font: inherit; }
 .selector--oscuro #t-desk[aria-selected="true"] { background: var(--cobre); border-color: var(--cobre); color: var(--blanco); }
 .selector--oscuro #t-assets[aria-selected="true"] { background: var(--pacifico); border-color: var(--pacifico); color: var(--blanco); }
 .selector--oscuro #t-projects[aria-selected="true"] { background: var(--cordillera); border-color: var(--cordillera); color: var(--blanco); }
+.selector--oscuro #t-inout[aria-selected="true"] { background: var(--arena); border-color: var(--arena); color: var(--petroleo); }
 .progreso > span { background: linear-gradient(90deg, var(--cobre), var(--acento)); }
 
 /* Trazo de impulso que baja con el scroll (pantallas anchas). */

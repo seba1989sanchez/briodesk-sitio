@@ -226,6 +226,7 @@
     "Nuevo ticket asignado: caja 3",
     "Activo NB-0158 registrado",
     "Tarea completada: Instalar cajas",
+    "OC-0142 lista para aprobar",
     "SLA en riesgo: impresora Centro"
   ];
 
