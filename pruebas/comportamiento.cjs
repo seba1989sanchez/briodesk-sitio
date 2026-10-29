@@ -53,8 +53,18 @@ const BASE = process.env.BASE_URL || 'http://127.0.0.1:8787';
   assert(await p.$eval('.ticket dl div:nth-child(1) dd span:not([hidden])', e => e.textContent) === 'En curso', 'ficha muestra estado de la etapa 4');
   // plataforma
   await p.click('#t-tablero');
-  assert(await p.$eval('.url', e => e.textContent) === 'tuempresa.briodesk.cl/tablero', 'URL cambia con la pantalla');
-  assert(await p.$eval('[data-menu-lateral] span.activo', e => e.textContent) === 'Tablero', 'menú lateral marca Tablero');
+  assert(await p.$eval('.url', e => e.textContent) === 'tuempresa.briodesk.cl', 'URL cambia con la pantalla');
+  assert(await p.$eval('#p-tablero', e => !e.hidden && /web-tablero/.test(e.querySelector('img').currentSrc || e.querySelector('img').src)), 'Reportes muestra su captura real');
+  await p.click('#t-portal');
+  assert(await p.$eval('.url', e => e.textContent) === 'tuempresa.briodesk.cl/portal', 'Portal muestra su dirección');
+  // Todas las capturas existen y cargan
+  const rotas = await p.$$eval('.captura img', imgs => Promise.all(imgs.map(i => fetch(i.currentSrc || i.src).then(r => r.ok ? null : i.src))).then(x => x.filter(Boolean)));
+  assert(rotas.length === 0, 'las 9 capturas cargan' + (rotas.length ? ': ' + rotas.join(', ') : ''));
+  // Ver una captura en grande
+  await p.click('#p-portal .ampliar');
+  assert(await p.$eval('dialog.visor', d => d.open && /web-portal@2x\.webp$/.test(d.querySelector('img').src)), 'la captura se abre en grande');
+  await p.keyboard.press('Escape');
+  assert(await p.$eval('dialog.visor', d => !d.open), 'Escape cierra la captura');
   // planes
   await p.click('#t-anual');
   const txt = await p.$eval('#planes', e => e.innerText);

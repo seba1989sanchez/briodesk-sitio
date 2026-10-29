@@ -197,6 +197,28 @@
 
   $$("[data-rotador]").forEach(rotador);
 
+  /* ---------- Capturas: clic para verlas en grande ---------- */
+  var botonesAmpliar = $$(".ampliar");
+  if (botonesAmpliar.length && typeof HTMLDialogElement === "function") {
+    var visor = document.createElement("dialog");
+    visor.className = "visor";
+    visor.setAttribute("aria-label", "Captura de BríoDesk en grande");
+    visor.innerHTML = '<button type="button" class="visor-cerrar" aria-label="Cerrar">×</button><img alt="">';
+    document.body.appendChild(visor);
+    var imgVisor = visor.querySelector("img");
+    visor.querySelector(".visor-cerrar").addEventListener("click", function () { visor.close(); });
+    visor.addEventListener("click", function (e) { if (e.target === visor) visor.close(); });
+    botonesAmpliar.forEach(function (b) {
+      b.addEventListener("click", function () {
+        var img = b.querySelector("img");
+        imgVisor.src = img.src.replace(/\.webp$/, "@2x.webp");
+        imgVisor.alt = img.alt;
+        visor.showModal();
+      });
+    });
+  }
+
+
   /* ---------- Planes: mensual / anual ---------- */
 
   $$("[data-planes]").forEach(function (seccion) {
