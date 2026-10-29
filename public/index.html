@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>BríoDesk · Mesa de servicios, activos y proyectos hecha en Chile</title>
-<meta name="description" content="BríoDesk es software chileno para ordenar tickets, activos y proyectos en una sola plataforma. Precios en pesos chilenos y app móvil incluida.">
+<title>BríoDesk · Mesa de servicios, activos, proyectos y proveedores hecha en Chile</title>
+<meta name="description" content="BríoDesk es software chileno para ordenar tickets, activos, proyectos y proveedores en una sola plataforma. Precios en pesos chilenos y app móvil incluida.">
 <meta name="theme-color" content="#13231A">
 <link rel="canonical" href="https://briodesk.cl/">
 
@@ -12,8 +12,8 @@
 <meta property="og:locale" content="es_CL">
 <meta property="og:site_name" content="BríoDesk">
 <meta property="og:url" content="https://briodesk.cl/">
-<meta property="og:title" content="BríoDesk · Pon en orden tus tickets, activos y proyectos">
-<meta property="og:description" content="Software chileno de mesa de servicios, inventario de activos y proyectos. Precios en pesos chilenos y app móvil incluida.">
+<meta property="og:title" content="BríoDesk · Pon en orden tus tickets, activos, proyectos y proveedores">
+<meta property="og:description" content="Software chileno de mesa de servicios, inventario de activos, proyectos y proveedores. Precios en pesos chilenos y app móvil incluida.">
 <meta property="og:image" content="https://briodesk.cl/assets/img/og-briodesk.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -64,8 +64,8 @@
           <li>Precios en pesos</li>
           <li>App móvil incluida</li>
         </ul>
-        <h1 class="in2">Pon en orden<br>tus <span class="palabra" data-por-indice><span>tickets.</span><span hidden>activos.</span><span hidden>proyectos.</span></span><span class="h1-sub">Una plataforma, hecha en Chile.</span></h1>
-        <p class="in3">BríoDesk reúne tu mesa de servicios, el inventario de activos y los proyectos del área en un solo lugar. Lo pagas en pesos chilenos y lo usas también desde el teléfono.</p>
+        <h1 class="in2">Pon en orden<br>tus <span class="palabra" data-por-indice><span>tickets.</span><span hidden>activos.</span><span hidden>proyectos.</span><span hidden>proveedores.</span></span><span class="h1-sub">Una plataforma, hecha en Chile.</span></h1>
+        <p class="in3">BríoDesk reúne tu mesa de servicios, el inventario de activos, los proyectos del área y tus proveedores en un solo lugar. Lo pagas en pesos chilenos y lo usas también desde el teléfono.</p>
         <div class="acciones in3">
           <a class="btn btn--acento" href="#demo">Agenda una demostración</a>
           <a class="btn btn--fantasma" href="#recorrido">Ver cómo funciona</a>
@@ -77,6 +77,7 @@
           <button role="tab" id="t-desk" aria-selected="true" aria-controls="p-desk" data-titulo="Centro de operaciones"><span>Brío Desk</span><small>Tickets y SLA</small></button>
           <button role="tab" id="t-assets" aria-selected="false" aria-controls="p-assets" data-titulo="Inventario de activos" tabindex="-1"><span>Brío Assets</span><small>Activos</small></button>
           <button role="tab" id="t-projects" aria-selected="false" aria-controls="p-projects" data-titulo="Proyectos del área" tabindex="-1"><span>Brío Projects</span><small>Proyectos y tareas</small></button>
+          <button role="tab" id="t-inout" aria-selected="false" aria-controls="p-inout" data-titulo="Proveedores y compras" tabindex="-1"><span>Brío InOut</span><small>Proveedores y contratos</small></button>
         </div>
         <div class="progreso" data-progreso aria-hidden="true"><span></span></div>
         <div class="mock">
@@ -141,6 +142,26 @@
               <p class="hecho">Cambio de red oficina</p>
             </div>
           </div>
+
+          <div class="pila" role="tabpanel" id="p-inout" aria-labelledby="t-inout" hidden>
+            <div class="kpis in">
+              <div class="kpi"><small>Proveedores</small><strong>28</strong></div>
+              <div class="kpi"><small>OC del mes</small><strong>14</strong></div>
+              <div class="kpi"><small>Por renovar</small><strong>3</strong></div>
+            </div>
+            <div class="fila in">
+              <div><b>OC-0142 · Notebooks para Finanzas</b><small>$2.390.000 · Espera aprobación</small></div>
+              <span class="estado estado--info">Por aprobar</span>
+            </div>
+            <div class="fila in2">
+              <div><b>Contrato soporte de impresoras</b><small>Proveedor Imprenta Sur · Reajuste IPC</small></div>
+              <span class="estado estado--alerta">Renueva en 25 días</span>
+            </div>
+            <div class="fila in3">
+              <div><b>Factura 8812 · Guía 5531</b><small>Recepción conforme · Bsale</small></div>
+              <span class="estado estado--ok">Conciliada</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -150,7 +171,7 @@
     <ul class="wrap">
       <li><span class="check"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F08A3E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg></span>Hecho y soportado en Chile</li>
       <li><span class="check"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F08A3E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg></span>Precios en pesos chilenos</li>
-      <li><span class="check"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F08A3E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg></span>App móvil con tickets, activos y proyectos</li>
+      <li><span class="check"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F08A3E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg></span>App móvil con tickets, activos, proyectos y compras</li>
       <li><span class="check"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F08A3E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg></span>Se adapta al lenguaje de cada área</li>
     </ul>
   </div>
@@ -499,6 +520,7 @@
         <button role="tab" id="t-m-tickets" aria-selected="true" aria-controls="p-m-tickets" data-texto="Crea solicitudes, revisa el avance y recibe avisos. Los agentes atienden y cierran desde terreno.">Tickets</button>
         <button role="tab" id="t-m-activos" aria-selected="false" aria-controls="p-m-activos" data-texto="Registra activos nuevos, revisa su estado y su historial de incidencias sin volver a la oficina." tabindex="-1">Activos</button>
         <button role="tab" id="t-m-proyectos" aria-selected="false" aria-controls="p-m-proyectos" data-texto="Marca tareas como hechas, ve el avance del proyecto y sabe qué falta, desde donde estés." tabindex="-1">Proyectos</button>
+        <button role="tab" id="t-m-compras" aria-selected="false" aria-controls="p-m-compras" data-texto="Aprueba órdenes de compra, confirma lo que llegó y revisa los contratos por vencer, sin abrir el computador." tabindex="-1">Compras</button>
       </div>
       <p class="app-texto" data-texto-tab="texto" aria-live="polite">Crea solicitudes, revisa el avance y recibe avisos. Los agentes atienden y cierran desde terreno.</p>
     </div>
@@ -532,6 +554,14 @@
             <div class="tarea hecha in2"><i aria-hidden="true"></i>Instalar cajas</div>
             <div class="tarea in3"><i aria-hidden="true"></i>Configurar impresoras</div>
             <div class="tarea in3"><i aria-hidden="true"></i>Pruebas de apertura</div>
+          </div>
+
+          <div role="tabpanel" id="p-m-compras" aria-labelledby="t-m-compras" hidden>
+            <h3 class="in">Por aprobar</h3>
+            <div class="movil-item in"><b>OC-0142 · Notebooks</b><small>$2.390.000 · Finanzas</small></div>
+            <div class="movil-item in2"><b>Guía 5531 · Bodega central</b><small class="ok">Recepción confirmada</small></div>
+            <div class="movil-item in3"><b>Contrato soporte impresoras</b><small class="alerta">Renueva en 25 días</small></div>
+            <div class="movil-boton in3">Aprobar OC</div>
           </div>
         </div>
       </div>
