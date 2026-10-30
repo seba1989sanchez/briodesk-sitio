@@ -83,84 +83,23 @@
         <div class="mock">
           <div class="mock-cabeza">
             <span class="mock-titulo" data-texto-tab="titulo">Centro de operaciones</span>
-            <span class="en-vivo"><i class="pulso"></i>En vivo · ejemplo</span>
+            <span class="en-vivo">Captura real · datos de ejemplo</span>
           </div>
 
-          <div class="pila" role="tabpanel" id="p-desk" aria-labelledby="t-desk">
-            <div class="kpis in">
-              <div class="kpi"><small>Abiertos</small><strong data-vivo="abiertos">42</strong></div>
-              <div class="kpi"><small>SLA cumplido</small><strong>94,8%</strong></div>
-              <div class="kpi"><small>Sin asignar</small><strong data-vivo="sin-asignar">6</strong></div>
-            </div>
-            <div class="fila fila--nueva in" data-vivo="nuevo">
-              <div><em>NUEVO</em><b data-campo="titulo">Cambio de clave de correo</b><small data-campo="mesa">Portal · Mesa Accesos</small></div>
-              <span class="estado estado--info">Asignando…</span>
-            </div>
-            <div class="fila in2">
-              <div><b>No funciona impresora sucursal Centro</b><small>Mesa Soporte · Nivel 1</small></div>
-              <span class="estado estado--alerta">Vence <span data-vivo="sla">en 00:59:00</span></span>
-            </div>
-            <div class="fila in3">
-              <div><b>Alta de usuario nuevo ingreso</b><small>Mesa Accesos</small></div>
-              <span class="estado estado--ok">En plazo</span>
-            </div>
+          <div class="captura" role="tabpanel" id="p-desk" aria-labelledby="t-desk">
+            <button type="button" class="ampliar" aria-label="Ver la captura en grande"><img src="/assets/img/capturas/hero-desk.webp" srcset="/assets/img/capturas/hero-desk.webp 1440w, /assets/img/capturas/hero-desk@2x.webp 2880w" sizes="(min-width: 1100px) 560px, 92vw" width="1440" height="900" alt="Brío Desk: resumen de la mesa con casos creados, resueltos, abiertos, cumplimiento de SLA y satisfacción" decoding="async" fetchpriority="high"></button>
           </div>
 
-          <div class="pila" role="tabpanel" id="p-assets" aria-labelledby="t-assets" hidden>
-            <div class="kpis in">
-              <div class="kpi"><small>Activos</small><strong>318</strong></div>
-              <div class="kpi"><small>En uso</small><strong>291</strong></div>
-              <div class="kpi"><small>Por revisar</small><strong>9</strong></div>
-            </div>
-            <div class="fila in">
-              <div><b>Notebook · NB-0142</b><small>Asignado · Área Finanzas</small></div>
-              <span class="estado estado--ok">Operativo</span>
-            </div>
-            <div class="fila in2">
-              <div><b>Impresora · IM-0031</b><small>Sucursal Centro · 2 tickets abiertos</small></div>
-              <span class="estado estado--alerta">Con incidencia</span>
-            </div>
-            <div class="fila in3">
-              <div><b>Refrigerador · RF-0012</b><small>Bodega central</small></div>
-              <span class="estado estado--neutro">En stock</span>
-            </div>
+          <div class="captura" role="tabpanel" id="p-assets" aria-labelledby="t-assets" hidden>
+            <button type="button" class="ampliar" aria-label="Ver la captura en grande"><img src="/assets/img/capturas/hero-assets.webp" srcset="/assets/img/capturas/hero-assets.webp 1440w, /assets/img/capturas/hero-assets@2x.webp 2880w" sizes="(min-width: 1100px) 560px, 92vw" width="1440" height="900" alt="Brío Assets: inicio con 142 equipos, garantías por vencer, licencias, valor libro y lo que requiere atención" decoding="async"></button>
           </div>
 
-          <div class="kanban" role="tabpanel" id="p-projects" aria-labelledby="t-projects" hidden>
-            <div class="in">
-              <h4>Por hacer</h4>
-              <p>Inventario sucursal Norte</p>
-              <p>Cotizar renovación de equipos</p>
-            </div>
-            <div class="in2">
-              <h4>En curso</h4>
-              <p>Migración de correo<span class="barra" aria-hidden="true"><span data-vivo="avance" style="width: 58%"></span></span></p>
-              <p>Apertura tienda Ñuñoa</p>
-            </div>
-            <div class="in3">
-              <h4>Listo</h4>
-              <p class="hecho">Cambio de red oficina</p>
-            </div>
+          <div class="captura" role="tabpanel" id="p-projects" aria-labelledby="t-projects" hidden>
+            <button type="button" class="ampliar" aria-label="Ver la captura en grande"><img src="/assets/img/capturas/hero-projects.webp" srcset="/assets/img/capturas/hero-projects.webp 1440w, /assets/img/capturas/hero-projects@2x.webp 2880w" sizes="(min-width: 1100px) 560px, 92vw" width="1440" height="900" alt="Brío Projects: tablero Kanban del proyecto Renovación de notebooks 2026 con tareas pendientes, en curso, en revisión y hechas" decoding="async"></button>
           </div>
 
-          <div class="pila" role="tabpanel" id="p-inout" aria-labelledby="t-inout" hidden>
-            <div class="kpis in">
-              <div class="kpi"><small>Proveedores</small><strong>28</strong></div>
-              <div class="kpi"><small>OC del mes</small><strong>14</strong></div>
-              <div class="kpi"><small>Por renovar</small><strong>3</strong></div>
-            </div>
-            <div class="fila in">
-              <div><b>OC-0142 · Notebooks para Finanzas</b><small>$2.390.000 · Espera aprobación</small></div>
-              <span class="estado estado--info">Por aprobar</span>
-            </div>
-            <div class="fila in2">
-              <div><b>Contrato soporte de impresoras</b><small>Proveedor Imprenta Sur · Reajuste IPC</small></div>
-              <span class="estado estado--alerta">Renueva en 25 días</span>
-            </div>
-            <div class="fila in3">
-              <div><b>Factura 8812 · Guía 5531</b><small>Recepción conforme · Bsale</small></div>
-              <span class="estado estado--ok">Conciliada</span>
-            </div>
+          <div class="captura" role="tabpanel" id="p-inout" aria-labelledby="t-inout" hidden>
+            <button type="button" class="ampliar" aria-label="Ver la captura en grande"><img src="/assets/img/capturas/hero-inout.webp" srcset="/assets/img/capturas/hero-inout.webp 1440w, /assets/img/capturas/hero-inout@2x.webp 2880w" sizes="(min-width: 1100px) 560px, 92vw" width="1440" height="900" alt="Brío InOut: resumen de compras del mes, facturas por pagar, contratos y últimas órdenes de compra" decoding="async"></button>
           </div>
         </div>
       </div>
@@ -379,15 +318,15 @@
     <div>
       <p class="antetitulo">La plataforma web</p>
       <h2 class="titulo-2" id="plataforma-titulo">Una vista para cada persona del proceso.</h2>
-      <p class="bajada">Recorre las pantallas principales: desde el portal donde se pide ayuda hasta la configuración de cada mesa.</p>
+      <p class="bajada">Recorre las pantallas principales, tal como se ven en BríoDesk: desde el portal donde se pide ayuda hasta el lenguaje de cada mesa. Capturas reales con datos de ejemplo.</p>
     </div>
   </div>
   <div class="selector selector--doble" role="tablist" aria-label="Pantallas de la plataforma">
-    <button role="tab" id="t-portal" aria-selected="true" aria-controls="p-portal" data-url="tuempresa.briodesk.cl/portal" data-menu="0"><span>Portal</span><small>Solicitante</small></button>
-    <button role="tab" id="t-bandeja" aria-selected="false" aria-controls="p-bandeja" data-url="tuempresa.briodesk.cl/tickets" data-menu="1" tabindex="-1"><span>Bandeja</span><small>Agente</small></button>
-    <button role="tab" id="t-detalle" aria-selected="false" aria-controls="p-detalle" data-url="tuempresa.briodesk.cl/tickets/4821" data-menu="1" tabindex="-1"><span>Detalle del ticket</span><small>Agente</small></button>
-    <button role="tab" id="t-tablero" aria-selected="false" aria-controls="p-tablero" data-url="tuempresa.briodesk.cl/tablero" data-menu="2" tabindex="-1"><span>Tablero</span><small>Coordinador</small></button>
-    <button role="tab" id="t-config" aria-selected="false" aria-controls="p-config" data-url="tuempresa.briodesk.cl/config/mesas/mantencion" data-menu="4" tabindex="-1"><span>Configuración</span><small>Administrador</small></button>
+    <button role="tab" id="t-portal" aria-selected="true" aria-controls="p-portal" data-url="tuempresa.briodesk.cl/portal"><span>Portal</span><small>Solicitante</small></button>
+    <button role="tab" id="t-bandeja" aria-selected="false" aria-controls="p-bandeja" data-url="tuempresa.briodesk.cl" tabindex="-1"><span>Bandeja</span><small>Agente</small></button>
+    <button role="tab" id="t-detalle" aria-selected="false" aria-controls="p-detalle" data-url="tuempresa.briodesk.cl" tabindex="-1"><span>Detalle del caso</span><small>Agente</small></button>
+    <button role="tab" id="t-tablero" aria-selected="false" aria-controls="p-tablero" data-url="tuempresa.briodesk.cl" tabindex="-1"><span>Reportes</span><small>Coordinador</small></button>
+    <button role="tab" id="t-config" aria-selected="false" aria-controls="p-config" data-url="tuempresa.briodesk.cl" tabindex="-1"><span>Configuración</span><small>Administrador</small></button>
   </div>
 
   <div class="navegador">
@@ -396,114 +335,24 @@
       <div class="url" data-texto-tab="url">tuempresa.briodesk.cl/portal</div>
     </div>
     <div class="app-web">
-      <div class="app-menu" data-menu-lateral aria-hidden="true">
-        <img src="/assets/img/briodesk-logo-claro.png" alt="" width="134" height="28">
-        <span class="activo">Portal</span><span>Tickets</span><span>Tablero</span><span>Activos</span><span>Configuración</span>
+      <div class="captura" role="tabpanel" id="p-portal" aria-labelledby="t-portal">
+        <button type="button" class="ampliar" aria-label="Ver la captura en grande"><img src="/assets/img/capturas/web-portal.webp" srcset="/assets/img/capturas/web-portal.webp 1440w, /assets/img/capturas/web-portal@2x.webp 2880w" sizes="(min-width: 1240px) 1180px, 96vw" width="1440" height="900" alt="Portal de autoservicio: saludo a Rodrigo, buscador con asistente, aviso de una falla conocida y las acciones pendientes del solicitante" decoding="async"></button>
       </div>
-      <div class="app-contenido">
 
-        <div role="tabpanel" id="p-portal" aria-labelledby="t-portal">
-          <div class="pantalla-titulo in">Hola, Daniela. ¿En qué te ayudamos?</div>
-          <div class="buscador in"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#51604F" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>Busca un servicio: contraseña, vacaciones, notebook…</div>
-          <div class="mini-grilla in2">
-            <div class="mini"><b>Soporte TI</b><small>12 servicios</small></div>
-            <div class="mini"><b>Accesos</b><small>6 servicios</small></div>
-            <div class="mini"><b>Personas</b><small>9 trámites</small></div>
-            <div class="mini"><b>Mantención</b><small>7 tipos de trabajo</small></div>
-            <div class="mini"><b>Finanzas</b><small>5 requerimientos</small></div>
-          </div>
-          <div class="lista in3">
-            <div class="lista-titulo">Mis solicitudes</div>
-            <div><span>Solicitud de vacaciones</span><span class="estado estado--ok">Aprobada</span></div>
-            <div><span>Falla de impresora</span><span class="estado estado--neutro">En curso</span></div>
-          </div>
-        </div>
+      <div class="captura" role="tabpanel" id="p-bandeja" aria-labelledby="t-bandeja" hidden>
+        <button type="button" class="ampliar" aria-label="Ver la captura en grande"><img src="/assets/img/capturas/web-bandeja.webp" srcset="/assets/img/capturas/web-bandeja.webp 1440w, /assets/img/capturas/web-bandeja@2x.webp 2880w" sizes="(min-width: 1240px) 1180px, 96vw" width="1440" height="900" alt="Cola de casos con filtros por mesa y prioridad, vencimientos de SLA y responsable de cada caso" loading="lazy" decoding="async"></button>
+      </div>
 
-        <div role="tabpanel" id="p-bandeja" aria-labelledby="t-bandeja" hidden>
-          <div class="entre in">
-            <span class="pantalla-titulo">Bandeja de tickets</span>
-            <div class="filtros"><span class="activo">Mis tickets · 8</span><span>Sin asignar · 6</span><span>Por vencer · 3</span></div>
-          </div>
-          <div class="tabla-scroll in2">
-            <table class="tabla">
-              <thead><tr><th scope="col">N°</th><th scope="col">Asunto</th><th scope="col">Mesa</th><th scope="col">Prioridad</th><th scope="col">SLA</th></tr></thead>
-              <tbody>
-                <tr><td>#4821</td><td>No funciona impresora sucursal Centro</td><td>Soporte N1</td><td>Alta</td><td><span class="estado estado--alerta" data-vivo="sla">en 00:59:00</span></td></tr>
-                <tr><td>#4819</td><td>Alta de usuario nuevo ingreso</td><td>Accesos</td><td>Media</td><td><span class="estado estado--ok">En plazo</span></td></tr>
-                <tr><td>#4816</td><td>Sin conexión a internet en bodega</td><td>Redes</td><td>Alta</td><td><span class="estado estado--ok">En plazo</span></td></tr>
-                <tr><td>#4812</td><td>Solicitud de licencia de software</td><td>Licencias</td><td>Baja</td><td><span class="estado estado--ok">En plazo</span></td></tr>
-                <tr><td>#4807</td><td>Pantalla parpadea en caja 3</td><td>Soporte N1</td><td>Media</td><td><span class="estado estado--neutro">En pausa</span></td></tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
+      <div class="captura" role="tabpanel" id="p-detalle" aria-labelledby="t-detalle" hidden>
+        <button type="button" class="ampliar" aria-label="Ver la captura en grande"><img src="/assets/img/capturas/web-detalle.webp" srcset="/assets/img/capturas/web-detalle.webp 1440w, /assets/img/capturas/web-detalle@2x.webp 2880w" sizes="(min-width: 1240px) 1180px, 96vw" width="1440" height="900" alt="Detalle del caso INC-1071: equipo vinculado, reparación en un clic, conversación, responsable y seguimiento de SLA" loading="lazy" decoding="async"></button>
+      </div>
 
-        <div role="tabpanel" id="p-detalle" aria-labelledby="t-detalle" hidden>
-          <div class="detalle">
-            <div class="detalle-hilo in">
-              <div><div class="ruta">#4821 · Soporte TI › Impresoras</div><div class="pantalla-titulo">No funciona impresora sucursal Centro</div></div>
-              <div class="mensaje"><b>Daniela F. <span>· solicitante · 09:12</span></b><p>La impresora de caja no imprime boletas desde esta mañana. Adjunto foto del error.</p></div>
-              <div class="mensaje mensaje--agente"><b>Diego M. <span>· agente · 09:26</span></b><p>Revisé el historial del equipo: tuvo la misma falla hace dos semanas. Voy en camino a la sucursal.</p></div>
-              <div class="mensaje mensaje--vacio">Escribe una respuesta…</div>
-            </div>
-            <div class="lista in2">
-              <div><span class="gris">Estado</span><strong>En curso</strong></div>
-              <div><span class="gris">Prioridad</span><strong>Alta</strong></div>
-              <div><span class="gris">Responsable</span><strong>Diego M.</strong></div>
-              <div><span class="gris">SLA</span><span class="estado estado--alerta" data-vivo="sla">en 00:59:00</span></div>
-              <div><span class="gris">Activo</span><strong>IM-0031</strong></div>
-            </div>
-          </div>
-        </div>
+      <div class="captura" role="tabpanel" id="p-tablero" aria-labelledby="t-tablero" hidden>
+        <button type="button" class="ampliar" aria-label="Ver la captura en grande"><img src="/assets/img/capturas/web-tablero.webp" srcset="/assets/img/capturas/web-tablero.webp 1440w, /assets/img/capturas/web-tablero@2x.webp 2880w" sizes="(min-width: 1240px) 1180px, 96vw" width="1440" height="900" alt="Reportes: indicadores de 30 días, tiempos de resolución y primera respuesta, satisfacción y gráficos de SLA" loading="lazy" decoding="async"></button>
+      </div>
 
-        <div role="tabpanel" id="p-tablero" aria-labelledby="t-tablero" hidden>
-          <div class="pantalla-titulo in">Tablero de coordinación</div>
-          <div class="kpis-4 in">
-            <div class="kpi"><small>Abiertos</small><strong data-vivo="abiertos">42</strong></div>
-            <div class="kpi"><small>SLA cumplido</small><strong>94,8%</strong></div>
-            <div class="kpi"><small>Por vencer</small><strong>3</strong></div>
-            <div class="kpi"><small>Resueltos hoy</small><strong>27</strong></div>
-          </div>
-          <div class="tablero">
-            <div class="grafico in2">
-              <h4>Tickets abiertos por mesa</h4>
-              <div class="barras" role="img" aria-label="Gráfico de ejemplo: Soporte es la mesa con más tickets abiertos, seguida de Mantención, Redes, Accesos y Personas.">
-                <div><i style="height: 140px"></i><small>Soporte</small></div>
-                <div><i style="height: 72px"></i><small>Accesos</small></div>
-                <div><i style="height: 96px"></i><small>Redes</small></div>
-                <div><i style="height: 58px"></i><small>Personas</small></div>
-                <div><i style="height: 110px"></i><small>Mantención</small></div>
-              </div>
-            </div>
-            <div class="lista in3">
-              <div class="lista-titulo">Alertas</div>
-              <div><span class="estado estado--alerta">SLA</span> 3 tickets vencen en menos de 2 h</div>
-              <div><span class="estado estado--neutro">Carga</span> Mesa Soporte sobre su promedio</div>
-              <div><span class="estado estado--neutro">Cola</span> 6 tickets sin asignar</div>
-            </div>
-          </div>
-        </div>
-
-        <div role="tabpanel" id="p-config" aria-labelledby="t-config" hidden>
-          <div class="in"><div class="ruta">Configuración › Mesas</div><div class="pantalla-titulo">Mesa de Mantención</div></div>
-          <div class="config in2">
-            <h4>Lenguaje de la mesa</h4>
-            <div class="campos">
-              <div class="campo-falso">Cómo se llama un ticket<span>Orden de trabajo</span></div>
-              <div class="campo-falso">Quién atiende<span>Técnico</span></div>
-              <div class="campo-falso">Nombre del catálogo<span>Tipos de trabajo</span></div>
-            </div>
-          </div>
-          <div class="config in3">
-            <h4>Horario y SLA</h4>
-            <div class="campos">
-              <div class="campo-falso">Horario de atención<span>Lun a vie · 08:30 a 18:30</span></div>
-              <div class="campo-falso">Plazo por defecto<span>8 h hábiles</span></div>
-            </div>
-            <div class="interruptor"><i aria-hidden="true"></i>Considerar feriados de Chile</div>
-          </div>
-        </div>
-
+      <div class="captura" role="tabpanel" id="p-config" aria-labelledby="t-config" hidden>
+        <button type="button" class="ampliar" aria-label="Ver la captura en grande"><img src="/assets/img/capturas/web-config.webp" srcset="/assets/img/capturas/web-config.webp 1440w, /assets/img/capturas/web-config@2x.webp 2880w" sizes="(min-width: 1240px) 1180px, 96vw" width="1440" height="900" alt="Configuración del lenguaje del panel: término general y el estilo de cada mesa, como Tecnología, Mantención y Compras" loading="lazy" decoding="async"></button>
       </div>
     </div>
   </div>
